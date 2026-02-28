@@ -1,23 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu Toggle
+    // 1. Mobile Menu Toggle
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
 
-    if (mobileBtn) {
+    if (mobileBtn && navLinks) {
         mobileBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = mobileBtn.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.replace('ph-list', 'ph-x');
-            } else {
-                icon.classList.replace('ph-x', 'ph-list');
-            }
+            const isExpanded = navLinks.style.display === 'flex';
+            navLinks.style.display = isExpanded ? 'none' : 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '100%';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.backgroundColor = 'var(--bg-primary)';
+            navLinks.style.padding = '20px 0';
+            navLinks.style.borderBottom = '1px solid rgba(17,17,17,0.1)';
         });
     }
 
-    // Scroll Animations (Intersection Observer)
+    // 2. Scroll Animations (Intersection Observer for Fade Up)
     const observerOptions = {
-        threshold: 0.1,
+        threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
     };
 
@@ -25,15 +28,24 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Only animate once
             }
         });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll('.fade-in');
+    const animatedElements = document.querySelectorAll('.fade-up-element');
     animatedElements.forEach(el => observer.observe(el));
 
-    // Smooth scroll for anchor links (fallback if css smooth-scroll fails or for specific offsets)
+    // 3. Navbar background on scroll
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // 4. Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -42,12 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                // Close mobile menu if open
-                navLinks.classList.remove('active');
-                if (mobileBtn) {
-                    mobileBtn.querySelector('i').classList.replace('ph-x', 'ph-list');
+                if (navLinks && window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
                 }
-
                 targetElement.scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -55,20 +64,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Contact Form Handler
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+    // 5. Custom Cursor Logic
+    const initCursor = () => {
+        // Only initialize on non-touch devices
+        if (window.matchMedia("(pointer: coarse)").matches) {
+            document.body.style.cursor = 'auto'; // Revert to normal if touch
+            const interactives = document.querySelectorAll('a, button, .capability-item, .work-card');
+            interactives.forEach(el => el.style.cursor = 'pointer');
+            return; 
+        }
 
-            const email = document.getElementById('email').value;
+        const cursor = document.createElement('div');
+        cursor.classList.add('custom-cursor');
+        document.body.appendChild(cursor);
 
-            // Construct Calendly Link with query params
-            // Adjust query params based on Calendly's expected format (often ?name=...&email=...&a1=...)
-            const calendlyUrl = `https://calendly.com/mishitamaggo23?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&a1=${encodeURIComponent(service)}`;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let cursorX = mouseX;
+        let cursorY = mouseY;
+        
+        // Easing factor
+        const easing = 0.15;
 
-            // Redirect user
-            window.location.href = calendlyUrl;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
         });
-    }
+
+        const animateCursor = () => {
+            let distX = mouseX - cursorX;
+            let distY = mouseY - cursorY;
+            
+            cursorX += distX * easing;
+            cursorY += distY * easing;
+            
+            cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
+            requestAnimationFrame(animateCursor);
+        };
+        
+        requestAnimationFrame(animateCursor);
+
+        // Hover effects
+        const interactiveElements = document.querySelectorAll('a, button, .capability-item, .work-card');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+    };
+
+    initCursor();
 });
