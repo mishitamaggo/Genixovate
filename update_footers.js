@@ -8,7 +8,7 @@ const footerMarkup = `    <!-- FOOTER -->
         <div class="container">
             <div class="footer-new-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1000px;">
                 <div class="footer-brand">
-                    <span class="logo" style="font-family: 'Playfair Display', serif; font-size: 2rem; font-style: italic; font-weight: 600; margin-bottom: 20px; display: block;">Genixovate.</span>
+                    <img src="assets/logo.png" alt="Genixovate Logo" class="logo" style="height: 80px; width: auto; margin-bottom: 20px; display: block; filter: invert(1); mix-blend-mode: screen; margin-left: -20px;">
                     <p style="color: rgba(255,255,255,0.6); line-height: 1.6;">Building brand infrastructure<br>for modern fashion.</p>
                 </div>
                 <div class="footer-col" style="margin-left: auto;">

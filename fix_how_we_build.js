@@ -189,7 +189,7 @@ const content = `<!DOCTYPE html>
 <body>
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo">Genixovate.</a>
+            <a href="index.html" class="logo" style="display: flex; align-items: center; text-decoration: none;"><img src="assets/logo.png" alt="Genixovate" style="height: 64px; width: auto; mix-blend-mode: multiply; margin-left: -15px;"></a>
             <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="ph ph-list"></i></button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -348,7 +348,7 @@ const content = `<!DOCTYPE html>
         <div class="container">
             <div class="footer-new-grid">
                 <div class="footer-brand">
-                    <span class="logo">Genixovate.</span>
+                    <img src="assets/logo.png" alt="Genixovate Logo" class="logo" style="height: 80px; width: auto; margin-bottom: 20px; display: block; filter: invert(1); mix-blend-mode: screen; margin-left: -20px;">
                     <p>Building brand infrastructure<br>for modern fashion.</p>
                 </div>
                 <div class="footer-col">
