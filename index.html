@@ -4,256 +4,939 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genixovate | Fashion Growth Infrastructure Studio</title>
+    <title>Genixovate — Building Modern Fashion Brands</title>
     <meta name="description"
-        content="Genixovate: Architectural growth infrastructure for modern fashion brands. Strategic marketing, intelligent systems, and production-ready documentation.">
-
-    <!-- Fonts -->
+        content="We architect complete brand systems for fashion brands. Identity, product development, market infrastructure. Every element designed to scale.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap"
         rel="stylesheet">
-
-    <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css?v=2.0">
+    <style>
+        /* ── NAV ── */
+        .navbar {
+            background: transparent;
+        }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=1.2">
+        .navbar.scrolled {
+            background: rgba(245, 242, 238, 0.97);
+        }
+
+        /* ── HERO ── */
+
+
+        .hero-content {
+            text-align: center;
+            padding: 0 5%;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            max-width: 900px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 1.8vw, 1.35rem);
+            max-width: 620px;
+            margin: 0 auto 3rem;
+            color: var(--text-muted);
+        }
+
+        .hero-cta {
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* ── VALUE PROPS ── */
+        .value-props {
+            border-top: 1px solid rgba(17, 17, 17, .1);
+            border-bottom: 1px solid rgba(17, 17, 17, .1);
+            padding: 40px 0;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+        }
+
+        .value-props span {
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .vp-sep {
+            color: rgba(17, 17, 17, .2);
+        }
+
+        /* ── PILLARS ── */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            margin-top: 80px;
+        }
+
+        .pillar {
+            border-top: 2px solid var(--text-primary);
+            padding-top: 40px;
+        }
+
+        .pillar-kicker {
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .pillar h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .pillar>p {
+            font-size: .9rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .pillar-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .pillar-list li {
+            font-size: .85rem;
+            color: var(--text-secondary, #444);
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .05);
+        }
+
+        .pillar-list li::before {
+            content: "— ";
+            color: var(--text-muted);
+        }
+
+        .pillar-tagline {
+            font-size: .83rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* ── PHILOSOPHY ── */
+        .philosophy-section {
+            background: var(--bg-dark, #111);
+            color: #fff;
+            padding: 140px 0;
+        }
+
+        .philosophy-body {
+            max-width: 720px;
+        }
+
+        .philosophy-body p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, .7);
+            margin-bottom: 25px;
+        }
+
+        .philosophy-body .highlight {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        /* ── PHASES ── */
+        .phases-grid {
+            display: grid;
+            gap: 0;
+            margin-top: 80px;
+        }
+
+        .phase-item {
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr;
+            gap: 60px;
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .08);
+            align-items: start;
+        }
+
+        .phase-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: rgba(0, 0, 0, .1);
+            line-height: 1;
+        }
+
+        .phase-title {
+            font-size: .72rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+
+        .phase-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .phase-item>div>p {
+            font-size: .9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .phase-right h5 {
+            font-size: .7rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        .phase-right ul {
+            list-style: none;
+        }
+
+        .phase-right ul li {
+            font-size: .85rem;
+            color: var(--text-secondary, #444);
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .05);
+        }
+
+        .phase-right ul li::before {
+            content: "✓ ";
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .phase-timeline {
+            margin-top: 20px;
+            font-size: .78rem;
+            color: var(--text-muted);
+            font-style: italic;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0, 0, 0, .08);
+        }
+
+        /* ── PACKAGES ── */
+        .packages-section {
+            background: #faf9f7;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 80px;
+        }
+
+        .pkg {
+            padding: 50px 40px;
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        .pkg.featured {
+            background: var(--text-primary, #111);
+            color: #fff;
+        }
+
+        .pkg-label {
+            font-size: .72rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .pkg.featured .pkg-label {
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .pkg h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .pkg.featured h3 {
+            color: #fff;
+        }
+
+        .pkg>p {
+            font-size: .88rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .pkg.featured>p {
+            color: rgba(255, 255, 255, .6);
+        }
+
+        .pkg-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pkg-features li {
+            font-size: .83rem;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .06);
+            color: var(--text-secondary, #444);
+        }
+
+        .pkg.featured .pkg-features li {
+            border-color: rgba(255, 255, 255, .1);
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .pkg-features li::before {
+            content: "— ";
+            color: var(--text-muted);
+        }
+
+        .pkg.featured .pkg-features li::before {
+            color: rgba(255, 255, 255, .4);
+        }
+
+        .pkg-meta {
+            font-size: .82rem;
+            margin-bottom: 20px;
+        }
+
+        .pkg-investment {
+            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .pkg.featured .pkg-investment {
+            color: #fff;
+        }
+
+        .pkg-timeline {
+            font-size: .8rem;
+            color: var(--text-muted);
+        }
+
+        .pkg.featured .pkg-timeline {
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .pkg-cta {
+            display: inline-block;
+            padding: 14px 24px;
+            font-size: .82rem;
+            font-weight: 600;
+            letter-spacing: .04em;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: all .2s;
+        }
+
+        .pkg-cta.dark {
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+        }
+
+        .pkg-cta.dark:hover {
+            background: var(--text-primary);
+            color: #fff;
+        }
+
+        .pkg-cta.light {
+            border: 1px solid rgba(255, 255, 255, .5);
+            color: #fff;
+        }
+
+        .pkg-cta.light:hover {
+            background: #fff;
+            color: var(--text-primary);
+        }
+
+        /* ── TECH ADVANTAGE ── */
+        .tech-section {
+            padding: 140px 0;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: start;
+            margin-top: 80px;
+        }
+
+        .tech-left h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .tech-left p {
+            font-size: .95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .tech-capabilities {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .tech-capabilities li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .07);
+            font-size: .88rem;
+            color: var(--text-secondary, #444);
+        }
+
+        .tech-capabilities li i {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .tech-conclusion {
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .tech-right {
+            padding-top: 20px;
+        }
+
+        .tech-stat {
+            border-left: 2px solid var(--text-primary);
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            background: #faf9f7;
+        }
+
+        .tech-stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .tech-stat-label {
+            font-size: .82rem;
+            color: var(--text-muted);
+        }
+
+        /* ── FOOTER ── */
+        .footer-new {
+            background: #0a0a0a;
+            padding: 80px 0 0;
+        }
+
+        .footer-new-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, .45);
+            font-size: .88rem;
+            margin-bottom: 25px;
+            margin-top: 12px;
+        }
+
+        .footer-brand .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #fff;
+            font-style: italic;
+        }
+
+        .footer-col h4 {
+            color: rgba(255, 255, 255, .4);
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, .65);
+            text-decoration: none;
+            font-size: .88rem;
+            transition: color .2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            padding: 28px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, .3);
+            font-size: .8rem;
+        }
+
+        @media (max-width: 900px) {
+
+            .pillars-grid,
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .phase-item {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .phase-num {
+                font-size: 2.5rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .footer-new-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            .value-props {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="#" class="logo">Genixovate.</a>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class="ph ph-list"></i>
-            </button>
+            <a href="index.html" class="logo">Genixovate.</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="ph ph-list"></i></button>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="agents.html">Agents</a></li>
-                <li><a href="tech-packs.html">Tech Packs</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html" class="btn btn-primary">Start Conversation</a></li>
+                <li><a href="how-we-build.html">How We Build</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Start a Project</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
+    <!-- HERO -->
+    <section class="hero">
         <div class="hero-video-wrapper">
-            <!-- Cinematic fashion footage placeholder -->
-            <img src="assets/hero_bg_1772274963937.png" class="hero-bg" alt="Cinematic Fashion Footage">
+            <img src="assets/hero_bg_1772274963937.png" class="hero-bg" alt="Fashion Brand Systems">
             <div class="hero-overlay"></div>
         </div>
         <div class="container hero-content fade-up-element">
-            <h1 class="hero-title">
-                Architected Growth for<br>Modern Fashion Brands.
-            </h1>
-            <p class="hero-subtitle">
-                We design intelligent brand infrastructures that scale with precision.
-            </p>
+            <h1 class="hero-title">Tailoring the Future of Fashion with<br>AI & Digital Mastery</h1>
+            <p class="hero-subtitle"><strong>AI-Powered Fashion Tech Meets Elite Digital
+                    Marketing.</strong><br>Genixovate drives scalable growth for emerging designers, scaling brands, and
+                established fashion houses.</p>
             <div class="hero-cta">
-                <a href="#contact" class="btn btn-primary">Build With Us</a>
-                <a href="#method" class="btn btn-secondary">Our Method</a>
+                <a href="contact.html" class="btn btn-primary btn-large">Book a Discovery Call &rarr;</a>
+                <a href="services.html" class="btn btn-secondary btn-large">Explore Fashion Growth Packages</a>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Section 2: Our Framework -->
-    <section id="framework" class="section philosophy-section">
+    <!-- VALUE PROPS -->
+    <div class="value-props fade-up-element">
+        <span>AI Fashion Marketing</span>
+        <span class="vp-sep">|</span>
+        <span>Brand Digital Dominance</span>
+        <span class="vp-sep">|</span>
+        <span>Automated Tech Packs</span>
+    </div>
+
+    <!-- WHAT WE BUILD -->
+    <section class="section relative-z" style="background:#faf9f7;">
+        <div class="container fade-up-element">
+            <div class="section-header">
+                <span class="section-kicker">The New Reality for Fashion Brands</span>
+                <h2 class="section-title">Eliminating Bottlenecks<br>& Digital Noise</h2>
+                <p class="section-desc">In a world of AI-driven search, fleeting trends, and high ad costs, creative
+                    excellence alone isn't enough. Genixovate delivers cultural relevance, revenue velocity, and
+                    operational efficiency through AI in fashion marketing and full-funnel strategies.</p>
+            </div>
+
+            <div class="pillars-grid">
+                <div class="pillar fade-up-element">
+                    <span class="pillar-kicker">Brand Architecture & Incubation</span>
+                    <h3>Build enduring fashion identities</h3>
+                    <p>Strategic positioning and narratives that position your label as a cultural force.</p>
+                    <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:15px;">We develop:</p>
+                    <ul class="pillar-list">
+                        <li>Visual storytelling &amp; DNA</li>
+                        <li>SEO-driven brand architecture</li>
+                        <li>Cultural narrative development</li>
+                        <li>Lookbooks &amp; visual ecosystems</li>
+                        <li>Full brand fashion incubation</li>
+                    </ul>
+                    <p class="pillar-tagline">A brand without strategy is just aesthetics. We build both.</p>
+                </div>
+
+                <div class="pillar fade-up-element">
+                    <span class="pillar-kicker">Digital Dominance</span>
+                    <h3>Achieve visibility and loyalty</h3>
+                    <p>Multi-channel paid media and organic growth turning audiences into high-value customers.</p>
+                    <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:15px;">We deliver:</p>
+                    <ul class="pillar-list">
+                        <li>Meta, TikTok &amp; Google Ads</li>
+                        <li>SEO &amp; organic growth for fashion</li>
+                        <li>Trendjacking fashion campaigns</li>
+                        <li>Conversion rate optimization</li>
+                        <li>Attribution modeling for brands</li>
+                    </ul>
+                    <p class="pillar-tagline">Precision digital marketing for fashion brands ready to scale.</p>
+                </div>
+
+                <div class="pillar fade-up-element">
+                    <span class="pillar-kicker">Intelligent Fashion Tech</span>
+                    <h3>Unlock breakthroughs with AI</h3>
+                    <p>Custom AI agents, automated tech pack generation, and marketing automation.</p>
+                    <p style="font-size:.82rem;color:var(--text-muted);margin-bottom:15px;">We integrate:</p>
+                    <ul class="pillar-list">
+                        <li>AI fashion marketing agents</li>
+                        <li>AI-powered tech pack generation</li>
+                        <li>Intelligent customer styling algorithms</li>
+                        <li>PLM &amp; workflow integrations</li>
+                        <li>Supply chain efficiency tools</li>
+                    </ul>
+                    <p class="pillar-tagline">Accelerate your brand from sketch to global scale effortlessly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section class="philosophy-section fade-up-element">
         <div class="container">
-            <div class="section-header fade-up-element">
-                <span class="section-kicker">Our Framework</span>
-                <h2 class="section-title">Structured. Strategic. Scalable.</h2>
-                <p class="section-desc">We build modular frameworks that allow fashion brands to expand without
-                    fragmentation.</p>
-            </div>
-
-            <div class="philosophy-grid">
-                <div class="philosophy-pillar fade-up-element delay-100">
-                    <h3>Brand Architecture</h3>
-                    <p>Meticulously structured identity systems that create a cohesive and commanding market presence.
-                    </p>
-                </div>
-                <div class="philosophy-pillar fade-up-element delay-200">
-                    <h3>Content Systems</h3>
-                    <p>Editorial engines designed to maintain high narrative velocity while preserving brand equity.</p>
-                </div>
-                <div class="philosophy-pillar fade-up-element delay-300">
-                    <h3>Growth Infrastructure</h3>
-                    <p>Scalable frameworks driving consistent performance, retention, and strategic expansion.</p>
-                </div>
+            <span class="section-kicker" style="color:rgba(255,255,255,.4);">Why Forward-Thinking Labels Partner with
+                Us</span>
+            <h2
+                style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);color:#fff;margin-bottom:60px;max-width:700px;">
+                Engineered dominance for tomorrow's fashion icons.</h2>
+            <div class="philosophy-body">
+                <p class="highlight">"Genixovate transformed our fashion growth—AI automation slashed production
+                    time while digital strategies exploded conversions." <br>— Scaling brand Brand</p>
+                <p class="highlight" style="margin-top:40px;">"Finally, fashion tech that matches creative ambition with
+                    intelligent efficiency." <br>— Emerging Designer</p>
+                <p style="color:rgba(255,255,255,.55);font-style:italic;margin-top:60px;">Ready for AI-powered fashion
+                    scaling?</p>
+                <a href="contact.html" class="btn btn-primary"
+                    style="margin-top:20px;display:inline-block;padding:15px 30px;">Book a Discovery Call &rarr;</a>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Capabilities (Growth Pillars) -->
-    <section id="pillars" class="section capabilities-section relative-overflow">
-        <div class="section-bg">
-            <img src="assets/capabilities_bg_1772275012525.png" alt="Abstract Lines Background">
-        </div>
-        <div class="container relative-z">
-            <div class="section-header left-aligned fade-up-element">
-                <span class="section-kicker">Capabilities</span>
-                <h2 class="section-title">Growth Pillars</h2>
+    <!-- OUR APPROACH — 4 PHASES -->
+    <section class="section relative-z">
+        <div class="container fade-up-element">
+            <div class="section-header">
+                <span class="section-kicker">Our Approach</span>
+                <h2 class="section-title">How We Build Your Brand</h2>
             </div>
 
-            <div class="capabilities-list">
-                <div class="capability-item fade-up-element">
-                    <div class="capability-title">Brand Positioning & Narrative</div>
-                    <div class="capability-desc">Crafting unique identities that carve out white space in saturated
-                        markets.</div>
-                </div>
-                <div class="capability-item fade-up-element delay-100">
-                    <div class="capability-title">Digital Presence Architecture</div>
-                    <div class="capability-desc">Structuring immersive, unified digital environments that captivate and
-                        convert.</div>
-                </div>
-                <div class="capability-item fade-up-element delay-200">
-                    <div class="capability-title">Campaign Systems</div>
-                    <div class="capability-desc">Developing modular aesthetic systems for cohesive seasonal rollouts.
+            <div class="phases-grid">
+                <div class="phase-item fade-up-element">
+                    <div class="phase-num">01</div>
+                    <div>
+                        <span class="phase-title">Phase One</span>
+                        <h3>Brand Architecture</h3>
+                        <p>Every brand needs a foundation. We begin with deep strategy work — understanding your
+                            vision,
+                            defining your customer, establishing your positioning. Then we translate strategy into
+                            visual systems.</p>
+                        <div class="phase-timeline">Timeline: 2 weeks</div>
+                    </div>
+                    <div class="phase-right">
+                        <h5>You receive</h5>
+                        <ul>
+                            <li>Complete brand strategy document</li>
+                            <li>Visual identity system</li>
+                            <li>Brand messaging framework</li>
+                            <li>Customer archetype profiles</li>
+                            <li>Positioning &amp; differentiation strategy</li>
+                            <li>100+ page brand guidelines</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="capability-item fade-up-element delay-100">
-                    <div class="capability-title">Performance Structuring</div>
-                    <div class="capability-desc">Data-driven frameworks built to maximize ROI and scale efficiently.
+
+                <div class="phase-item fade-up-element">
+                    <div class="phase-num">02</div>
+                    <div>
+                        <span class="phase-title">Phase Two</span>
+                        <h3>Product Foundation</h3>
+                        <p>Vision needs technical execution. We transform your design ideas into manufacturing-ready
+                            specifications. Tech packs, size systems, material specifications. Everything your
+                            manufacturer needs.</p>
+                        <div class="phase-timeline">Timeline: 2–4 weeks</div>
+                    </div>
+                    <div class="phase-right">
+                        <h5>You receive</h5>
+                        <ul>
+                            <li>Tech packs for your first collection</li>
+                            <li>Complete size grading system</li>
+                            <li>Material specifications &amp; sourcing strategy</li>
+                            <li>Manufacturing documentation</li>
+                            <li>Quality control checklists</li>
+                            <li>Cost breakdown &amp; timeline projections</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="capability-item fade-up-element delay-200">
-                    <div class="capability-title">Content Velocity Design</div>
-                    <div class="capability-desc">Architecting production systems for high-output, premium editorial
-                        content.</div>
+
+                <div class="phase-item fade-up-element">
+                    <div class="phase-num">03</div>
+                    <div>
+                        <span class="phase-title">Phase Three</span>
+                        <h3>Infrastructure Build</h3>
+                        <p>Brands need systems to reach market. We create your content production workflows,
+                            establish
+                            sales channels, set up customer communication systems, build your operations
+                            infrastructure.
+                        </p>
+                        <div class="phase-timeline">Timeline: 3–4 weeks</div>
+                    </div>
+                    <div class="phase-right">
+                        <h5>You receive</h5>
+                        <ul>
+                            <li>Content production system</li>
+                            <li>Website &amp; sales channel setup</li>
+                            <li>Customer journey automation</li>
+                            <li>Order &amp; inventory systems</li>
+                            <li>Team workflows &amp; documentation</li>
+                            <li>Launch-ready infrastructure</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="phase-item fade-up-element" style="border-bottom:none;">
+                    <div class="phase-num">04</div>
+                    <div>
+                        <span class="phase-title">Phase Four</span>
+                        <h3>Scale Systems</h3>
+                        <p>Growth requires systematic capability. We establish performance tracking, create feedback
+                            loops, build expansion frameworks, develop team integration plans.</p>
+                        <div class="phase-timeline">Timeline: Ongoing monthly support</div>
+                    </div>
+                    <div class="phase-right">
+                        <h5>You receive</h5>
+                        <ul>
+                            <li>Performance measurement systems</li>
+                            <li>Collection planning frameworks</li>
+                            <li>Channel expansion playbooks</li>
+                            <li>Customer feedback systems</li>
+                            <li>Team scaling documentation</li>
+                            <li>Continuous optimization support</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: The Genixovate Method -->
-    <section id="method" class="section method-section">
-        <div class="method-bg">
-            <img src="assets/method_bg_1772275029443.png" alt="Abstract Studio Texture">
-        </div>
-        <div class="container method-content">
-            <div class="section-header centered fade-up-element">
-                <span class="section-kicker">The Genixovate Method</span>
-                <h2 class="section-title text-light">Precision in Execution</h2>
-                <p class="section-desc text-light">We build modular frameworks that allow fashion brands to expand
-                    without fragmentation.</p>
+    <!-- HOW TO WORK WITH US -->
+    <section class="packages-section section">
+        <div class="container fade-up-element">
+            <div class="section-header" style="text-align:center;">
+                <span class="section-kicker">Ways to Work Together</span>
+                <h2 class="section-title">Three Ways to Build with Us</h2>
             </div>
 
-            <div class="method-steps" style="grid-template-columns: repeat(4, 1fr);">
-                <div class="method-step fade-up-element delay-100">
-                    <div class="step-num">01</div>
-                    <h3 class="text-light">Observe</h3>
-                    <p class="text-light-muted">Deep analysis of cultural currents and audience behavior.</p>
+            <div class="packages-grid">
+                <div class="pkg fade-up-element">
+                    <span class="pkg-label">Brand Launch</span>
+                    <h3>For Emerging Brands</h3>
+                    <p>Going from concept to market. We build your complete brand infrastructure.</p>
+                    <ul class="pkg-features">
+                        <li>Strategy &amp; identity systems</li>
+                        <li>Product development capability</li>
+                        <li>Market infrastructure</li>
+                        <li>Launch systems</li>
+                    </ul>
+                    <div class="pkg-meta">
+                        <span class="pkg-investment" style="display:flex; align-items:center; gap: 15px;">
+                            <span
+                                style="text-decoration:line-through; font-size: 1.2rem; color: #888; font-weight: 400;">$2,800</span>
+                            $28,000
+                        </span>
+                        <span class="pkg-timeline">8–12 weeks (One-time)</span>
+                    </div>
+                    <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:15px;">A complete, market-ready
+                        brand with systems that scale.</p>
+                    <a href="contact.html" class="pkg-cta dark">Start Your Brand</a>
                 </div>
-                <div class="method-step fade-up-element delay-200">
-                    <div class="step-num">02</div>
-                    <h3 class="text-light">Architect</h3>
-                    <p class="text-light-muted">Designing the blueprint bridging creative vision and execution.</p>
+
+                <div class="pkg featured fade-up-element">
+                    <span class="pkg-label">Brand Growth</span>
+                    <h3>For Established Brands</h3>
+                    <p>Building systematic scale. We create growth infrastructure for brands ready to expand.</p>
+                    <ul class="pkg-features">
+                        <li>Collection development systems</li>
+                        <li>Multi-channel frameworks</li>
+                        <li>Customer experience automation</li>
+                        <li>Performance optimization</li>
+                        <li>Strategic guidance</li>
+                    </ul>
+                    <div class="pkg-meta">
+                        <span class="pkg-investment">$4,500–$6,500/mo</span>
+                        <span class="pkg-timeline">(retainer, based on scope)</span>
+                    </div>
+                    <p style="font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:15px;">The systems and
+                        support to
+                        scale without chaos.</p>
+                    <a href="contact.html" class="pkg-cta light">Build Growth Systems</a>
                 </div>
-                <div class="method-step fade-up-element delay-300">
-                    <div class="step-num">03</div>
-                    <h3 class="text-light">Deploy</h3>
-                    <p class="text-light-muted">Launching meticulous campaigns within a structured growth engine.</p>
-                </div>
-                <div class="method-step fade-up-element delay-400">
-                    <div class="step-num">04</div>
-                    <h3 class="text-light">Refine</h3>
-                    <p class="text-light-muted">Continuous optimization to ensure enduring brand legacy and scale.</p>
+
+                <div class="pkg fade-up-element">
+                    <span class="pkg-label">Brand Excellence</span>
+                    <h3>For Serious Scale</h3>
+                    <p>We become your brand operations. Complete capability, comprehensive partnership.</p>
+                    <ul class="pkg-features">
+                        <li>Unlimited product development</li>
+                        <li>Complete content systems</li>
+                        <li>Multi-channel infrastructure</li>
+                        <li>Strategic partnership</li>
+                        <li>Custom automation</li>
+                    </ul>
+                    <div class="pkg-meta">
+                        <span class="pkg-investment">$9,000+/mo</span>
+                        <span class="pkg-timeline">(custom retainer)</span>
+                    </div>
+                    <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:15px;">A complete brand
+                        operations
+                        capability.</p>
+                    <a href="contact.html" class="pkg-cta dark">Partner with Us</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 5: Results -->
-    <section id="results" class="section work-section">
+    <!-- TECHNOLOGY ADVANTAGE -->
+    <section class="tech-section">
+        <div class="container fade-up-element">
+            <span class="section-kicker">The Technology Advantage</span>
+            <div class="tech-grid">
+                <div class="tech-left">
+                    <h2>Intelligent Systems for Brand Building</h2>
+                    <p>We've built proprietary AI agents specifically for fashion brand development. These systems
+                        handle the repetitive technical work that typically slows down brand building.</p>
+                    <ul class="tech-capabilities">
+                        <li><i class="ph ph-file-text"></i>Tech pack generation from design sketches</li>
+                        <li><i class="ph ph-tag"></i>Product description writing at scale</li>
+                        <li><i class="ph ph-calendar"></i>Content calendar development</li>
+                        <li><i class="ph ph-envelope"></i>Email sequence creation</li>
+                        <li><i class="ph ph-file-doc"></i>Technical specification documentation</li>
+                    </ul>
+                    <p class="tech-conclusion">This technology doesn't replace human expertise. It amplifies it. Our
+                        team focuses on strategy, creative direction, and the decisions that define your brand. AI
+                        handles execution speed and consistency.</p>
+                </div>
+                <div class="tech-right">
+                    <div class="tech-stat">
+                        <span class="tech-stat-num">24 hrs</span>
+                        <span class="tech-stat-label">Tech packs delivered. vs 2 weeks traditional.</span>
+                    </div>
+                    <div class="tech-stat">
+                        <span class="tech-stat-num">Days</span>
+                        <span class="tech-stat-label">Complete collections developed. vs weeks.</span>
+                    </div>
+                    <div class="tech-stat">
+                        <span class="tech-stat-num">100+</span>
+                        <span class="tech-stat-label">Content pieces produced monthly. Consistently.</span>
+                    </div>
+                    <div class="tech-stat">
+                        <span class="tech-stat-num">50%</span>
+                        <span class="tech-stat-label">Lower cost vs traditional agencies.</span>
+                    </div>
+                    <p style="font-size:.82rem;color:var(--text-muted);margin-top:25px;font-style:italic;">
+                        Strategic,
+                        systematic, scalable. This is modern brand building.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+                        <!-- FOOTER -->
+    <footer class="footer-new">
         <div class="container">
-            <div class="section-header fade-up-element">
-                <span class="section-kicker">Proof of Architecture</span>
-                <h2 class="section-title">Results</h2>
-            </div>
-
-            <div class="results-layout">
-                <div class="result-block fade-up-element">
-                    <h3>+3x</h3>
-                    <p>Content Output</p>
+            <div class="footer-new-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1000px;">
+                <div class="footer-brand">
+                    <span class="logo" style="font-family: 'Playfair Display', serif; font-size: 2rem; font-style: italic; font-weight: 600; margin-bottom: 20px; display: block;">Genixovate.</span>
+                    <p style="color: rgba(255,255,255,0.6); line-height: 1.6;">Building brand infrastructure<br>for modern fashion.</p>
                 </div>
-                <div class="result-block fade-up-element delay-100">
-                    <h3>+187%</h3>
-                    <p>Engagement</p>
+                <div class="footer-col" style="margin-left: auto;">
+                    <h4 style="color: rgba(255,255,255,0.3); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;">Company</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="tel:+919871543232">9871543232</a></li>
+                    </ul>
                 </div>
-                <div class="result-block fade-up-element delay-200">
-                    <h3>42%</h3>
-                    <p>Cost Optimization</p>
-                </div>
-                <div class="result-block fade-up-element delay-300">
-                    <h3>2x</h3>
-                    <p>Campaign Velocity</p>
-                </div>
-            </div>
-
-            <!-- Dashboard Proof -->
-            <div class="dashboard-proof fade-up-element">
-                <div class="dashboard-grid">
-                    <div class="dashboard-wrapper">
-                        <img src="assets/gsc-results.png" alt="Growth Analytics Dashboard" class="dashboard-img">
-                    </div>
-                    <div class="dashboard-wrapper revenue-dashboard">
-                        <img src="assets/revenue-results.png" alt="Performance Structuring Dashboard"
-                            class="dashboard-img">
-                    </div>
+                <div class="footer-col" style="margin-left: auto;">
+                    <h4 style="color: rgba(255,255,255,0.3); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;">Explore</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="agents.html">Agents</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                    </ul>
                 </div>
             </div>
-
-        </div>
-    </section>
-
-    <!-- Section 6: About -->
-    <section id="about" class="section about-section relative-overflow">
-        <div class="section-bg">
-            <img src="assets/work_1_1772275052015.png" alt="Soft Gradient Texture">
-        </div>
-        <div class="container about-container fade-up-element relative-z">
-            <div class="about-text">
-                <h2 class="section-title">A creative intelligence studio combining cultural insight and structured
-                    execution.</h2>
-                <p>Genixovate approaches brand building with quiet confidence and understated elegance. We design the
-                    infrastructure that allows modern fashion brands to scale without losing their aesthetic intent.</p>
-            </div>
-            <div class="about-visual">
-                <img src="assets/work_2_1772275112120.png" alt="Studio Portrait Minimalist">
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 7: CTA -->
-    <section id="contact" class="section cta-section">
-        <div class="container cta-container fade-up-element">
-            <h2 class="cta-title">Ready to Build a Brand That Scales with Precision?</h2>
-            <a href="mailto:hello@genixovate.com" class="btn btn-primary btn-large">Start the Conversation</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <div class="logo">Genixovate.</div>
-                <p>Growth Infrastructure Studio.</p>
-            </div>
-            <div class="footer-links">
-                <a href="#framework">Framework</a>
-                <a href="#pillars">Growth Pillars</a>
-                <a href="#results">Results</a>
-            </div>
-            <div class="footer-meta">
-                <p class="copyright">&copy; 2026 Genixovate. All rights reserved.</p>
+            <div class="footer-bottom" style="margin-top: 60px;">
+                <p>&copy; 2026 Genixovate. Built for fashion founders who value systems as much as creativity.</p>
             </div>
         </div>
     </footer>

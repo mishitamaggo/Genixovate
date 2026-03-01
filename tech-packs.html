@@ -4,169 +4,524 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fashion Tech Packs | Genixovate</title>
+    <title>AI Tech Packs | Genixovate</title>
     <meta name="description"
-        content="Production-ready fashion documentation. We bridge design creativity and manufacturing precision for modern labels.">
-
-    <!-- Fonts -->
+        content="AI Tech Pack Generation for Fashion Brands. Upload design sketches. Get manufacturing-ready tech packs in 24 hours. ₹8,000 per pack.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
         rel="stylesheet">
-
-    <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css?v=1.3">
+    <style>
+        .includes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 40px
+        }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=1.2">
+        .include-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            font-size: .88rem;
+            color: var(--text-secondary);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .05)
+        }
+
+        .include-item::before {
+            content: "✓";
+            color: var(--text-primary);
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 1px
+        }
+
+        .how-steps {
+            display: grid;
+            gap: 0
+        }
+
+        .how-item {
+            display: flex;
+            gap: 25px;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .07)
+        }
+
+        .how-item:last-child {
+            border-bottom: none
+        }
+
+        .how-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: rgba(0, 0, 0, .12);
+            min-width: 50px;
+            line-height: 1.2
+        }
+
+        .how-content h4 {
+            font-size: .95rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary)
+        }
+
+        .how-content p {
+            font-size: .85rem;
+            color: var(--text-secondary);
+            line-height: 1.7
+        }
+
+        .two-path-how {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px
+        }
+
+        .path-heading {
+            font-size: .75rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 8px 16px;
+            border: 1px solid var(--text-primary);
+            display: inline-block;
+            margin-bottom: 30px
+        }
+
+        .path-cost {
+            padding: 20px;
+            background: var(--text-primary);
+            color: #fff;
+            margin-top: 20px;
+            font-size: .9rem
+        }
+
+        .path-cost strong {
+            color: #fff
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px
+        }
+
+        .comparison-table th {
+            padding: 15px 20px;
+            font-size: .75rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-bottom: 2px solid var(--text-primary);
+            text-align: left
+        }
+
+        .comparison-table td {
+            padding: 15px 20px;
+            font-size: .88rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(0, 0, 0, .06)
+        }
+
+        .comparison-table td:first-child {
+            color: var(--text-primary);
+            font-weight: 500
+        }
+
+        .comparison-table td.genixovate-col {
+            color: var(--text-primary);
+            font-weight: 600
+        }
+
+        .savings-row {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap
+        }
+
+        .savings-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 25px;
+            border: 1px solid rgba(0, 0, 0, .1)
+        }
+
+        .savings-item h4 {
+            font-size: .8rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-muted)
+        }
+
+        .savings-item p {
+            font-size: .9rem;
+            color: var(--text-secondary)
+        }
+
+        .footer-new {
+            background: #0a0a0a;
+            padding: 80px 0 0
+        }
+
+        .footer-new-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px
+        }
+
+        .footer-new-brand .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+            display: block
+        }
+
+        .footer-new-brand p {
+            color: rgba(255, 255, 255, .45);
+            font-size: .85rem;
+            margin-bottom: 25px
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px
+        }
+
+        .footer-social a {
+            color: rgba(255, 255, 255, .5);
+            text-decoration: none;
+            font-size: .8rem;
+            border: 1px solid rgba(255, 255, 255, .2);
+            padding: 6px 12px
+        }
+
+        .footer-col h4 {
+            color: rgba(255, 255, 255, .5);
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            margin-bottom: 25px
+        }
+
+        .footer-col ul {
+            list-style: none
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, .65);
+            text-decoration: none;
+            font-size: .88rem
+        }
+
+        .footer-new-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            padding: 25px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .footer-new-bottom p {
+            color: rgba(255, 255, 255, .35);
+            font-size: .8rem
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">Genixovate.</a>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class="ph ph-list"></i>
-            </button>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="ph ph-list"></i></button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="agents.html">Agents</a></li>
-                <li><a href="tech-packs.html" class="active">Tech Packs</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html" class="btn btn-primary">Start Conversation</a></li>
+                <li><a href="how-we-build.html">How We Build</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Start a Project</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Page Intro -->
-    <header class="hero" style="min-height: 50vh;">
+    <!-- Hero -->
+    <header class="hero" style="min-height:55vh;">
         <div class="hero-video-wrapper">
-            <img src="assets/hero_bg_1772274963937.png" class="hero-bg" alt="Fashion Production Documentation">
+            <img src="assets/hero_bg_1772274963937.png" class="hero-bg" alt="AI Tech Pack Generation">
             <div class="hero-overlay"></div>
         </div>
         <div class="container hero-content fade-up-element">
-            <h1 class="hero-title">Production-Ready<br>Documentation</h1>
-            <p class="hero-subtitle">We bridge design creativity and manufacturing precision with structured technical
-                specifications.</p>
+            <h1 class="hero-title">AI Tech Pack Generation<br>for Fashion Brands</h1>
+            <p class="hero-subtitle">Upload design sketches. Get manufacturing-ready tech packs in 24 hours.<br>₹8,000
+                per pack vs ₹20–40K traditional cost.</p>
+            <div class="hero-cta">
+                <a href="contact.html" class="btn btn-primary">Try Demo</a>
+                <a href="pricing.html" class="btn btn-secondary">Buy Now</a>
+                <a href="contact.html" class="btn btn-secondary">Add to Service Package</a>
+            </div>
         </div>
     </header>
 
-    <!-- Educational Content -->
+    <!-- What You Get -->
     <section class="section relative-z">
-        <div class="container fade-up-element" style="max-width: 800px; line-height: 1.8;">
-            <h2 class="playfair" style="font-size: 2.5rem; margin-bottom: 30px;">Why Tech Packs Matter</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                A Tech Pack is the essential blueprint for your garment. It acts as the primary communication tool
-                between the designer and the factory, ensuring that your vision is translated into physical form without
-                ambiguity.
-            </p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
-                <div>
-                    <h4 class="playfair" style="margin-bottom: 15px;">Prevent Factory Errors</h4>
-                    <p style="font-size: 0.95rem; color: var(--text-secondary);">By defining every measurement, fabric
-                        weight, and stitch type, we eliminate the guesswork that leads to costly sampling errors.</p>
-                </div>
-                <div>
-                    <h4 class="playfair" style="margin-bottom: 15px;">Structured Scaling</h4>
-                    <p style="font-size: 0.95rem; color: var(--text-secondary);">Structured documentation allows you to
-                        move production between factories seamlessly while maintaining consistent quality.</p>
-                </div>
+        <div class="container fade-up-element" style="max-width:900px;">
+            <div class="section-header">
+                <span class="section-kicker">Deliverables</span>
+                <h2 class="section-title">Complete Manufacturing Specifications</h2>
+                <p class="section-desc">Every tech pack includes everything your manufacturer needs to produce
+                    accurately.</p>
+            </div>
+
+            <div class="includes-grid">
+                <div class="include-item">Technical drawings (front, back, side, detail views)</div>
+                <div class="include-item">Size grading (XS–3XL with precise measurements in cm/inches)</div>
+                <div class="include-item">Material specifications (fabric type, weight, composition)</div>
+                <div class="include-item">Construction details (stitch types, seam finishes)</div>
+                <div class="include-item">Trim and accessory specifications (buttons, zippers, labels)</div>
+                <div class="include-item">Color references (Pantone codes where applicable)</div>
+                <div class="include-item">Bill of materials (BOM)</div>
+                <div class="include-item">Manufacturing cost estimates</div>
+                <div class="include-item">Production timeline recommendations</div>
+                <div class="include-item">High-resolution PDF (print-ready for manufacturers)</div>
+            </div>
+
+            <div
+                style="margin-top:30px;padding:20px;background:rgba(0,0,0,.03);border-left:3px solid var(--text-primary);">
+                <strong>Format:</strong> High-resolution PDF (print-ready for manufacturers) &nbsp;|&nbsp;
+                <strong>Turnaround:</strong> 24 hours from sketch upload
             </div>
         </div>
     </section>
 
-    <!-- Pricing Tables -->
-    <section class="section relative-z" style="background: rgba(255,255,255,0.03);">
+    <!-- How It Works -->
+    <section class="section relative-z" style="background:#faf9f7;">
         <div class="container fade-up-element">
-            <h2 class="playfair" style="font-size: 2.5rem; margin-bottom: 50px; text-align: center;">Technical Packages
-            </h2>
-
-            <div class="tech-pack-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                <!-- Basic -->
-                <div style="padding: 50px; border: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.02);">
-                    <h3 class="playfair" style="font-size: 1.8rem; margin-bottom: 10px;">Basic Tech Pack</h3>
-                    <div style="font-size: 2.5rem; margin-bottom: 30px; color: var(--text-primary);">$100<span
-                            style="font-size: 0.9rem;">/design</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); line-height: 2.2;">
-                        <li><i class="ph ph-dot" style="margin-right: 10px;"></i> Technical flats</li>
-                        <li><i class="ph ph-dot" style="margin-right: 10px;"></i> Comprehensive measurements</li>
-                        <li><i class="ph ph-dot" style="margin-right: 10px;"></i> Fabric & material details</li>
-                        <li><i class="ph ph-dot" style="margin-right: 10px;"></i> Construction notes</li>
-                    </ul>
-                </div>
-
-                <!-- Advanced -->
-                <div style="padding: 50px; border: 1px solid var(--text-primary); background: rgba(0,0,0,0.04);">
-                    <h3 class="playfair" style="font-size: 1.8rem; margin-bottom: 10px;">Advanced Tech Pack</h3>
-                    <div style="font-size: 2.5rem; margin-bottom: 30px; color: var(--text-primary);">$180<span
-                            style="font-size: 0.9rem;">/design</span></div>
-                    <ul style="list-style: none; color: var(--text-muted); line-height: 2.2;">
-                        <li><i class="ph ph-check" style="margin-right: 10px; color: var(--accent-color);"></i> All
-                            Basic elements</li>
-                        <li><i class="ph ph-check" style="margin-right: 10px; color: var(--accent-color);"></i> Grading
-                            specifications</li>
-                        <li><i class="ph ph-check" style="margin-right: 10px; color: var(--accent-color);"></i> Bill of
-                            Materials (BOM)</li>
-                        <li><i class="ph ph-check" style="margin-right: 10px; color: var(--accent-color);"></i> Label &
-                            trim placement</li>
-                    </ul>
-                </div>
+            <div class="section-header" style="text-align:center;">
+                <span class="section-kicker">Process</span>
+                <h2 class="section-title">How It Works</h2>
             </div>
 
-            <!-- Bundles -->
-            <div style="margin-top: 50px; padding: 40px; border: 1px solid var(--text-primary); text-align: center;">
-                <h3 class="playfair" style="font-size: 1.5rem; margin-bottom: 20px;">Efficiency Bundles</h3>
-                <div style="display: flex; justify-content: center; gap: 40px;">
-                    <div><strong>5 Designs:</strong> $800</div>
-                    <div><strong>10 Designs:</strong> $1,500</div>
-                    <div><strong>3D Mockup:</strong> +$60</div>
+            <div class="two-path-how">
+                <!-- Self-Serve -->
+                <div>
+                    <span class="path-heading">Self-Serve Process</span>
+                    <div class="how-steps">
+                        <div class="how-item">
+                            <div class="how-num">01</div>
+                            <div class="how-content">
+                                <h4>Upload Design Sketch</h4>
+                                <p>Photo of hand-drawn sketch or digital design file. Add basic specs (garment type,
+                                    approximate measurements).</p>
+                            </div>
+                        </div>
+                        <div class="how-item">
+                            <div class="how-num">02</div>
+                            <div class="how-content">
+                                <h4>AI Generates Tech Pack</h4>
+                                <p>Our AI analyzes your design and creates complete specifications. Includes all
+                                    technical details manufacturers need.</p>
+                            </div>
+                        </div>
+                        <div class="how-item">
+                            <div class="how-num">03</div>
+                            <div class="how-content">
+                                <h4>Review & Download</h4>
+                                <p>You receive draft tech pack within 24 hours. Review, request adjustments (1 free
+                                    revision). Download final PDF.</p>
+                            </div>
+                        </div>
+                        <div class="how-item">
+                            <div class="how-num">04</div>
+                            <div class="how-content">
+                                <h4>Send to Manufacturer</h4>
+                                <p>Tech pack is ready to send directly to your manufacturer. No additional work needed.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="path-cost">
+                        <strong>Cost:</strong> ₹8,000 per tech pack<br>
+                        or ₹30,000nth (5 tech packs)
+                    </div>
+                    <div style="margin-top:20px;">
+                        <a href="contact.html" class="btn btn-primary">Start Now</a>
+                    </div>
+                </div>
+
+                <!-- With Human Oversight -->
+                <div>
+                    <span class="path-heading">With Human Oversight</span>
+                    <div style="padding:30px;border:1px solid rgba(0,0,0,.1);background:#fff;margin-bottom:20px;">
+                        <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:20px;font-style:italic;">
+                            Everything in self-serve, PLUS:</p>
+                        <div class="how-steps">
+                            <div class="how-item" style="padding:15px 0;">
+                                <div class="how-content">
+                                    <p>Fashion technician reviews AI output for accuracy</p>
+                                </div>
+                            </div>
+                            <div class="how-item" style="padding:15px 0;">
+                                <div class="how-content">
+                                    <p>Material sourcing recommendations</p>
+                                </div>
+                            </div>
+                            <div class="how-item" style="padding:15px 0;">
+                                <div class="how-content">
+                                    <p>Manufacturer introductions (if needed)</p>
+                                </div>
+                            </div>
+                            <div class="how-item" style="padding:15px 0;">
+                                <div class="how-content">
+                                    <p>Unlimited revisions until perfect</p>
+                                </div>
+                            </div>
+                            <div class="how-item" style="padding:15px 0;border-bottom:none;">
+                                <div class="how-content">
+                                    <p>Priority 12-hour turnaround</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="path-cost">
+                        <strong>Cost:</strong> ₹15,000 per tech pack<br>
+                        or Included in Full-Service packages
+                    </div>
+                    <div style="margin-top:20px;">
+                        <a href="contact.html" class="btn btn-secondary">Add to Service Package</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- Pricing Comparison -->
     <section class="section relative-z">
-        <div class="container fade-up-element" style="max-width: 800px;">
-            <h2 class="playfair" style="font-size: 2.5rem; margin-bottom: 40px;">Documentation FAQ</h2>
-            <div style="display: grid; gap: 30px;">
-                <div>
-                    <h4 class="playfair" style="margin-bottom: 10px;">How long does a tech pack take?</h4>
-                    <p style="color: var(--text-secondary);">Typically 3-5 business days depending on design complexity.
-                    </p>
+        <div class="container fade-up-element">
+            <div class="section-header" style="text-align:center;">
+                <span class="section-kicker">Cost Comparison</span>
+                <h2 class="section-title">Tech Pack Cost Comparison</h2>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Traditional Designer</th>
+                        <th class="genixovate-col">Genixovate Self-Serve</th>
+                        <th class="genixovate-col">Genixovate Managed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cost per tech pack</td>
+                        <td>₹20–40K</td>
+                        <td class="genixovate-col">₹8K</td>
+                        <td class="genixovate-col">₹15K</td>
+                    </tr>
+                    <tr>
+                        <td>Turnaround time</td>
+                        <td>7–14 days</td>
+                        <td class="genixovate-col">24 hours</td>
+                        <td class="genixovate-col">12–24 hours</td>
+                    </tr>
+                    <tr>
+                        <td>Revisions included</td>
+                        <td>1–2</td>
+                        <td class="genixovate-col">1</td>
+                        <td class="genixovate-col">Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>Quality consistency</td>
+                        <td>Varies</td>
+                        <td class="genixovate-col">High</td>
+                        <td class="genixovate-col">Very High</td>
+                    </tr>
+                    <tr>
+                        <td>Manufacturer-ready</td>
+                        <td>Sometimes</td>
+                        <td class="genixovate-col">Yes</td>
+                        <td class="genixovate-col">Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Cost estimates</td>
+                        <td>Extra ₹5K</td>
+                        <td class="genixovate-col">Included</td>
+                        <td class="genixovate-col">Included</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="playfair" style="font-size:1.4rem;margin-top:50px;margin-bottom:20px;">Annual Savings (12 tech
+                packs)</h3>
+            <div class="savings-row">
+                <div class="savings-item">
+                    <h4>Traditional</h4>
+                    <p>₹2.4–4.8L per year</p>
                 </div>
-                <div>
-                    <h4 class="playfair" style="margin-bottom: 10px;">Do you provide factory sourcing?</h4>
-                    <p style="color: var(--text-secondary);">Yes, factory support can be added to any package for $90.
-                    </p>
+                <div class="savings-item" style="border-color:var(--text-primary);">
+                    <h4>Genixovate Self-Serve</h4>
+                    <p>₹96K per year<br><strong>Save ₹1.44–3.84L per year</strong></p>
+                </div>
+                <div class="savings-item" style="border-color:var(--text-primary);">
+                    <h4>Genixovate Managed</h4>
+                    <p>₹1.8L per year<br><strong>Save ₹60K–3L per year</strong></p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <div class="logo">Genixovate.</div>
-                <p>Growth Infrastructure Studio.</p>
+    
+
+    <script src="script.js"></script>
+                    <!-- FOOTER -->
+    <footer class="footer-new">
+        <div class="container">
+            <div class="footer-new-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1000px;">
+                <div class="footer-brand">
+                    <span class="logo" style="font-family: 'Playfair Display', serif; font-size: 2rem; font-style: italic; font-weight: 600; margin-bottom: 20px; display: block;">Genixovate.</span>
+                    <p style="color: rgba(255,255,255,0.6); line-height: 1.6;">Building brand infrastructure<br>for modern fashion.</p>
+                </div>
+                <div class="footer-col" style="margin-left: auto;">
+                    <h4 style="color: rgba(255,255,255,0.3); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;">Company</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="tel:+919871543232">9871543232</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" style="margin-left: auto;">
+                    <h4 style="color: rgba(255,255,255,0.3); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;">Explore</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="agents.html">Agents</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="index.html#framework">Framework</a>
-                <a href="index.html#pillars">Growth Pillars</a>
-                <a href="index.html#results">Results</a>
-            </div>
-            <div class="footer-meta">
-                <p class="copyright">&copy; 2026 Genixovate. All rights reserved.</p>
+            <div class="footer-bottom" style="margin-top: 60px;">
+                <p>&copy; 2026 Genixovate. Built for fashion founders who value systems as much as creativity.</p>
             </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 
 </html>

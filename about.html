@@ -4,133 +4,387 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Genixovate</title>
+    <title>About | Genixovate</title>
     <meta name="description"
-        content="Where marketing, fashion, and technology intersect. Learn about the mission and vision of Genixovate studio.">
-
-    <!-- Fonts -->
+        content="Building brand infrastructure for modern fashion. We combine deep fashion expertise with proprietary technology to give founders enterprise-quality infrastructure.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap"
         rel="stylesheet">
-
-    <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css?v=2.0">
+    <style>
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1.8fr;
+            gap: 100px;
+            align-items: start;
+            padding: 120px 0;
+        }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=1.2">
+        .story-label {
+            font-size: .7rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .story-left h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            line-height: 1.2;
+        }
+
+        .story-right p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.9;
+            margin-bottom: 22px;
+        }
+
+        .story-right p.standout {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--text-primary, #111);
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .beliefs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+        }
+
+        .belief-item {
+            padding: 50px;
+            border-right: 1px solid rgba(0, 0, 0, .08);
+            border-bottom: 1px solid rgba(0, 0, 0, .08);
+        }
+
+        .belief-item:nth-child(even) {
+            border-right: none;
+        }
+
+        .belief-item:nth-last-child(-n+2) {
+            border-bottom: none;
+        }
+
+        .belief-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: rgba(0, 0, 0, .07);
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .belief-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .belief-item p {
+            font-size: .88rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .caps-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            border-top: 1px solid rgba(0, 0, 0, .08);
+        }
+
+        .cap-item {
+            padding: 40px 30px;
+            border-right: 1px solid rgba(0, 0, 0, .08);
+        }
+
+        .cap-item:last-child {
+            border-right: none;
+        }
+
+        .cap-item h4 {
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            margin-bottom: 12px;
+        }
+
+        .cap-item p {
+            font-size: .82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .footer-new {
+            background: #0a0a0a;
+            padding: 80px 0 0
+        }
+
+        .footer-new-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, .45);
+            font-size: .88rem;
+            margin-bottom: 25px;
+            margin-top: 12px
+        }
+
+        .footer-brand .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #fff;
+            font-style: italic
+        }
+
+        .footer-col h4 {
+            color: rgba(255, 255, 255, .4);
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            margin-bottom: 25px
+        }
+
+        .footer-col ul {
+            list-style: none
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, .65);
+            text-decoration: none;
+            font-size: .88rem
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            padding: 28px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, .3);
+            font-size: .8rem
+        }
+
+        @media(max-width:900px) {
+            .story-section {
+                grid-template-columns: 1fr;
+                gap: 40px
+            }
+
+            .beliefs-grid {
+                grid-template-columns: 1fr
+            }
+
+            .belief-item {
+                border-right: none
+            }
+
+            .caps-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .cap-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(0, 0, 0, .08)
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">Genixovate.</a>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class="ph ph-list"></i>
-            </button>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="ph ph-list"></i></button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="agents.html">Agents</a></li>
-                <li><a href="tech-packs.html">Tech Packs</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="about.html" class="active">About Us</a></li>
-                <li><a href="contact.html" class="btn btn-primary">Start Conversation</a></li>
+                <li><a href="how-we-build.html">How We Build</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Start a Project</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero" style="min-height: 50vh;">
+    <header class="hero">
         <div class="hero-video-wrapper">
-            <img src="assets/hero_bg_1772274963937.png" class="hero-bg" alt="Studio Intersection">
+            <img src="assets/hero_bg_1772274963937.png" class="hero-bg" alt="About Genixovate">
             <div class="hero-overlay"></div>
         </div>
-        <div class="container hero-content fade-up-element">
-            <h1 class="hero-title">Where Marketing, Fashion,<br>and Technology Intersect</h1>
-            <p class="hero-subtitle">Engineering the future of brand scaling with editorial soul.</p>
+        <div class="container hero-content fade-up-element" style="text-align:center;">
+            <h1 class="hero-title" style="font-size:3.5rem;">Premier Fashion Tech &<br>Digital Marketing Agency</h1>
+            <p class="hero-subtitle" style="max-width:600px;margin:0 auto;">Blending haute creative vision with AI intelligence for fashion dominance.</p>
         </div>
     </header>
 
-    <!-- Story Content -->
-    <section class="section relative-z">
-        <div class="container fade-up-element" style="max-width: 900px;">
-
-            <div style="margin-bottom: 80px;">
-                <h2 class="playfair" style="font-size: 2.5rem; margin-bottom: 30px;">Our Story</h2>
-                <div
-                    style="line-height: 1.8; color: var(--text-secondary); font-size: 1.1rem; column-count: 2; column-gap: 50px;">
-                    <p style="margin-bottom: 20px;">
-                        Genixovate was built at the intersection of deep fashion industry understanding,
-                        performance-driven marketing, and structured digital systems. We recognized early that standard
-                        agency models were failing modern fashion labels — either losing the creative essence in the
-                        tech, or failing to scale the vision through weak infrastructure.
-                    </p>
-                    <p>
-                        We help fashion brands grow with clarity, not chaos. By designing modular growth systems that
-                        respect the craft, we allow designers to focus on creation while we architect the mechanisms
-                        that deliver it to the world.
-                    </p>
+    <!-- Our Story -->
+    <section class="relative-z" style="background:#fff;">
+        <div class="container">
+            <div class="story-section fade-up-element">
+                <div class="story-left">
+                    <span class="story-label">Our Origin</span>
+                    <h2>Why We Built Genixovate</h2>
                 </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 80px;">
-                <div>
-                    <h2 class="playfair" style="font-size: 1.8rem; margin-bottom: 30px; color: var(--accent-color);">
-                        What Makes Us Different</h2>
-                    <ul style="list-style: none; line-height: 2.5;">
-                        <li><i class="ph ph-arrow-right" style="margin-right: 10px;"></i> We understand fashion cycles.
-                        </li>
-                        <li><i class="ph ph-arrow-right" style="margin-right: 10px;"></i> We design modular growth
-                            systems.</li>
-                        <li><i class="ph ph-arrow-right" style="margin-right: 10px;"></i> We blend creative direction
-                            with performance.</li>
-                        <li><i class="ph ph-arrow-right" style="margin-right: 10px;"></i> We focus on infrastructure,
-                            not vanity.</li>
+                <div class="story-right">
+                    <p class="standout">At the intersection of timeless fashion aesthetics and cutting-edge AI.</p>
+                    <p>Genixovate was founded to empower brands. Our team—fashion directors, brand scaling experts, and AI engineers—delivers unified solutions for fashion brand growth.</p>
+                    <p><strong>Our Philosophy</strong>: No more fragmented agencies. We integrate brand storytelling, digital marketing for fashion brands, and AI automation in fashion to create exponential outcomes.</p>
+                    <p><strong>Why Fashion Brands Choose Genixovate:</strong></p>
+                    <ul style="margin-left:20px;margin-bottom:20px;color:var(--text-muted);font-size:0.95rem;line-height:1.7;">
+                        <li style="margin-bottom:8px">Deep expertise in fashion & emerging labels</li>
+                        <li style="margin-bottom:8px">Proprietary AI tuned for apparel workflows & marketing</li>
+                        <li style="margin-bottom:8px">Proven strategies from runway to global e-commerce scale</li>
+                        <li style="margin-bottom:8px">Avant-garde edge: always ahead in fashion tech trends</li>
                     </ul>
-                </div>
-                <div style="padding: 40px; border: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.01);">
-                    <div style="margin-bottom: 30px;">
-                        <h4 class="playfair"
-                            style="font-size: 1.2rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;">
-                            Mission</h4>
-                        <p style="color: var(--text-muted);">To build fashion brands that scale with structure and
-                            precision.</p>
-                    </div>
-                    <div>
-                        <h4 class="playfair"
-                            style="font-size: 1.2rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em;">
-                            Vision</h4>
-                        <p style="color: var(--text-muted);">To become the leading growth infrastructure studio for
-                            fashion-first digital brands.</p>
-                    </div>
+                    <p style="color:var(--text-primary,#111);font-style:italic;font-weight:600;font-size:1.2rem;">Credo: Sleek. Visionary. Results-driven.</p>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <div class="logo">Genixovate.</div>
-                <p>Growth Infrastructure Studio.</p>
+    <!-- What We Believe -->
+    <section class="relative-z" style="background:#faf9f7;padding:80px 0 0;">
+        <div class="container fade-up-element">
+            <div style="text-align:center;padding-bottom:60px;">
+                <span class="section-kicker">Our Beliefs</span>
+                <h2 class="section-title">What We Believe</h2>
             </div>
-            <div class="footer-links">
-                <a href="index.html#framework">Framework</a>
-                <a href="index.html#pillars">Growth Pillars</a>
-                <a href="index.html#results">Results</a>
+            <div class="beliefs-grid">
+                <div class="belief-item">
+                    <div class="belief-num">01</div>
+                    <h3>Brands Need Systems</h3>
+                    <p>Creative vision alone doesn't build sustainable brands. You need infrastructure — the technical
+                        systems that transform ideas into reality and enable consistent scale.</p>
+                </div>
+                <div class="belief-item">
+                    <div class="belief-num">02</div>
+                    <h3>Technology Amplifies Expertise</h3>
+                    <p>AI should handle repetitive work. Humans should focus on strategy, creativity, and decisions that
+                        define brands. This combination creates unprecedented capability.</p>
+                </div>
+                <div class="belief-item">
+                    <div class="belief-num">03</div>
+                    <h3>Quality Scales with Systems</h3>
+                    <p>Great brands maintain consistency as they grow. This requires documented systems, clear
+                        frameworks, and intelligent automation working in concert.</p>
+                </div>
+                <div class="belief-item">
+                    <div class="belief-num">04</div>
+                    <h3>Founders Should Create</h3>
+                    <p>Designers should design. Founders should focus on vision and customers. Infrastructure should run
+                        itself. That's exactly what we build.</p>
+                </div>
             </div>
-            <div class="footer-meta">
-                <p class="copyright">&copy; 2026 Genixovate. All rights reserved.</p>
+        </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="relative-z" style="background:#faf9f7;padding:80px 0;">
+        <div class="container fade-up-element">
+            <div style="text-align:center;padding-bottom:60px;">
+                <span class="section-kicker">What We Bring</span>
+                <h2 class="section-title">Our Capabilities</h2>
+            </div>
+            <div class="caps-grid">
+                <div class="cap-item">
+                    <h4>Fashion Expertise</h4>
+                    <p>Deep understanding of fashion brand building, product development, and market dynamics</p>
+                </div>
+                <div class="cap-item">
+                    <h4>Technical Systems</h4>
+                    <p>Proprietary AI technology built specifically for fashion infrastructure and brand development</p>
+                </div>
+                <div class="cap-item">
+                    <h4>Strategic Thinking</h4>
+                    <p>Brand strategy, market positioning, differentiation, and growth architecture</p>
+                </div>
+                <div class="cap-item">
+                    <h4>Systematic Execution</h4>
+                    <p>Process design, workflow creation, and operations frameworks that scale</p>
+                </div>
+                <div class="cap-item">
+                    <h4>Quality Standards</h4>
+                    <p>Commitment to excellence in everything we build — strategy, systems, and execution</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:#111;padding:100px 0;text-align:center;">
+        <div class="container fade-up-element">
+            <h2 style="font-family:'Playfair Display',serif;font-size:2.8rem;color:#fff;margin-bottom:20px;">Work With
+                Us</h2>
+            <p style="color:rgba(255,255,255,.6);font-size:1rem;margin-bottom:35px;">Start with a discovery call. Every
+                project begins with understanding what you're building.</p>
+            <div style="display:flex;gap:20px;justify-content:center;">
+                <a href="contact.html"
+                    style="display:inline-block;padding:16px 36px;background:#fff;color:#111;font-weight:600;font-size:.9rem;text-decoration:none;letter-spacing:.04em;">Start
+                    a Project</a>
+                <a href="our-work.html"
+                    style="display:inline-block;padding:16px 36px;border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.9rem;text-decoration:none;letter-spacing:.04em;">See
+                    Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    
+    <script src="script.js"></script>
+                    <!-- FOOTER -->
+    <footer class="footer-new">
+        <div class="container">
+            <div class="footer-new-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1000px;">
+                <div class="footer-brand">
+                    <span class="logo" style="font-family: 'Playfair Display', serif; font-size: 2rem; font-style: italic; font-weight: 600; margin-bottom: 20px; display: block;">Genixovate.</span>
+                    <p style="color: rgba(255,255,255,0.6); line-height: 1.6;">Building brand infrastructure<br>for modern fashion.</p>
+                </div>
+                <div class="footer-col" style="margin-left: auto;">
+                    <h4 style="color: rgba(255,255,255,0.3); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;">Company</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="tel:+919871543232">9871543232</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" style="margin-left: auto;">
+                    <h4 style="color: rgba(255,255,255,0.3); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;">Explore</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="agents.html">Agents</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom" style="margin-top: 60px;">
+                <p>&copy; 2026 Genixovate. Built for fashion founders who value systems as much as creativity.</p>
             </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 
 </html>

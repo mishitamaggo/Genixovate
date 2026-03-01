@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Enable JS-powered animations (elements are visible by default without this)
+    document.documentElement.classList.add('js-loaded');
+
     // 1. Mobile Menu Toggle
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
@@ -20,20 +23,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Scroll Animations (Intersection Observer for Fade Up)
     const observerOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
+        threshold: 0,
+        rootMargin: "0px 0px 0px 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
     const animatedElements = document.querySelectorAll('.fade-up-element');
     animatedElements.forEach(el => observer.observe(el));
+
+    // Immediately show any elements already in the viewport on load
+    setTimeout(() => {
+        animatedElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                el.classList.add('visible');
+            }
+        });
+    }, 50);
 
     // 3. Navbar background on scroll
     const navbar = document.querySelector('.navbar');
@@ -71,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.cursor = 'auto'; // Revert to normal if touch
             const interactives = document.querySelectorAll('a, button, .capability-item, .work-card');
             interactives.forEach(el => el.style.cursor = 'pointer');
-            return; 
+            return;
         }
 
         const cursor = document.createElement('div');
@@ -82,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let mouseY = window.innerHeight / 2;
         let cursorX = mouseX;
         let cursorY = mouseY;
-        
+
         // Easing factor
         const easing = 0.15;
 
@@ -94,14 +108,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const animateCursor = () => {
             let distX = mouseX - cursorX;
             let distY = mouseY - cursorY;
-            
+
             cursorX += distX * easing;
             cursorY += distY * easing;
-            
+
             cursor.style.transform = `translate(${cursorX}px, ${cursorY}px) translate(-50%, -50%)`;
             requestAnimationFrame(animateCursor);
         };
-        
+
         requestAnimationFrame(animateCursor);
 
         // Hover effects

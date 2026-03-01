@@ -6,262 +6,563 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Genixovate</title>
     <meta name="description"
-        content="Growth infrastructure for fashion brands. Strategic marketing, intelligent systems, and production-ready documentation.">
-
-    <!-- Fonts -->
+        content="Three ways to build with Genixovate. Brand Launch, Brand Growth, and Brand Excellence — complete fashion brand infrastructure.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap"
         rel="stylesheet">
-
-    <!-- Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css?v=2.0">
+    <style>
+        /* Services hero */
+        
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css?v=1.2">
+        /* Service Detail Cards */
+        .service-detail {
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .08);
+        }
+
+        .service-detail:last-child {
+            border-bottom: none;
+        }
+
+        .sd-inner {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 100px;
+            align-items: start;
+        }
+
+        .sd-inner.reverse {
+            grid-template-columns: 1fr 350px;
+        }
+
+        .sd-inner.reverse .sd-right {
+            order: -1;
+        }
+
+        .sd-label {
+            font-size: .7rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .sd-left h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .sd-left>p {
+            font-size: .95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .sd-left .price-block {
+            padding: 25px 30px;
+            border: 1px solid var(--text-primary, #111);
+            margin-bottom: 25px;
+        }
+
+        .sd-left .price-block.dark {
+            background: var(--text-primary, #111);
+        }
+
+        .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .sd-left .price-block.dark .price-amount {
+            color: #fff;
+        }
+
+        .price-meta {
+            font-size: .82rem;
+            color: var(--text-muted);
+        }
+
+        .sd-left .price-block.dark .price-meta {
+            color: rgba(255, 255, 255, .5);
+        }
+
+        .sd-cta {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .04em;
+            text-decoration: none;
+            border: 1px solid var(--text-primary);
+            color: var(--text-primary);
+            transition: all .2s;
+        }
+
+        .sd-cta:hover {
+            background: var(--text-primary);
+            color: #fff;
+        }
+
+        .sd-right {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .included-section {
+            border: 1px solid rgba(0, 0, 0, .08);
+            background: #fff;
+            padding: 35px;
+        }
+
+        .included-section+.included-section {
+            border-top: none;
+        }
+
+        .included-section h5 {
+            font-size: .68rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .included-section ul {
+            list-style: none;
+        }
+
+        .included-section ul li {
+            font-size: .85rem;
+            color: var(--text-secondary, #444);
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .04);
+        }
+
+        .included-section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .included-section ul li::before {
+            content: "✓ ";
+            color: var(--text-primary, #111);
+            font-weight: 700;
+        }
+
+        .timeline-strip {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin: 30px 0;
+            border: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        .ts-item {
+            padding: 20px 25px;
+            flex: 1;
+            border-right: 1px solid rgba(0, 0, 0, .1);
+            text-align: center;
+        }
+
+        .ts-item:last-child {
+            border-right: none;
+        }
+
+        .ts-item h6 {
+            font-size: .65rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .ts-item p {
+            font-size: .9rem;
+            font-weight: 600;
+            margin-bottom: 0;
+            color: var(--text-primary);
+        }
+
+        /* For whom section */
+        .for-whom {
+            background: #faf9f7;
+            padding: 10px 30px 20px;
+            margin-top: 0;
+            border: 1px solid rgba(0, 0, 0, .08);
+            border-top: none;
+        }
+
+        .for-whom p {
+            font-size: .85rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .for-whom span {
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 5px;
+            margin-top: 10px;
+        }
+
+        /* CTA */
+        .cta-dark {
+            background: #111;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer-new {
+            background: #0a0a0a;
+            padding: 80px 0 0
+        }
+
+        .footer-new-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, .45);
+            font-size: .88rem;
+            margin-bottom: 25px;
+            margin-top: 12px
+        }
+
+        .footer-brand .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #fff;
+            font-style: italic
+        }
+
+        .footer-col h4 {
+            color: rgba(255, 255, 255, .4);
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            margin-bottom: 25px
+        }
+
+        .footer-col ul {
+            list-style: none
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, .65);
+            text-decoration: none;
+            font-size: .88rem
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            padding: 28px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, .3);
+            font-size: .8rem
+        }
+
+        @media(max-width:900px) {
+
+            .sd-inner,
+            .sd-inner.reverse {
+                grid-template-columns: 1fr;
+                gap: 40px
+            }
+
+            .sd-inner.reverse .sd-right {
+                order: 0
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">Genixovate.</a>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <i class="ph ph-list"></i>
-            </button>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="ph ph-list"></i></button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="services.html" class="active">Services</a></li>
-                <li><a href="agents.html">Agents</a></li>
-                <li><a href="tech-packs.html">Tech Packs</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html" class="btn btn-primary">Start Conversation</a></li>
+                <li><a href="how-we-build.html">How We Build</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Start a Project</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Page Intro -->
-    <header class="hero" style="min-height: 50vh;">
+    <!-- Hero -->
+    <header class="hero" style="min-height:50vh;">
         <div class="hero-video-wrapper">
-            <img src="assets/hero_bg_1772274963937.png" class="hero-bg" alt="Fashion Growth Infrastructure">
+            <img src="assets/hero_bg_1772274963937.png" class="hero-bg" alt="Services">
             <div class="hero-overlay"></div>
         </div>
-        <div class="container hero-content fade-up-element">
-            <h1 class="hero-title">Growth Infrastructure<br>for Fashion Brands</h1>
-            <p class="hero-subtitle">Strategic marketing, intelligent systems, and production-ready documentation —
-                built specifically for modern fashion labels.</p>
+        <div class="container hero-content fade-up-element" style="text-align:center;">
+            <h1 class="hero-title" style="font-size:3.5rem;">Comprehensive Fashion Growth Services: Branding, Digital Marketing & AI Tech</h1>
+            <p class="hero-subtitle" style="max-width:600px;margin:0 auto;">Integrated solutions for fashion brands—brand incubation, digital dominance, and AI automation tailored to modern fashion workflows.</p>
         </div>
     </header>
 
-    <!-- Digital Marketing Services -->
-    <section class="section relative-z">
-        <div class="container fade-up-element">
-            <h2 class="playfair" style="font-size: 2.5rem; margin-bottom: 50px; text-align: center;">Digital Marketing
-                Services</h2>
+    <div style="background:#faf9f7;">
 
-            <div class="services-detailed-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
-
-                <!-- SEO -->
-                <div class="service-detail-card"
-                    style="padding: 40px; border: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.01);">
-                    <h3 class="playfair" style="font-size: 1.8rem; margin-bottom: 20px;">SEO for Fashion Brands</h3>
-                    <ul style="list-style: none; color: var(--text-muted); line-height: 2; margin-bottom: 30px;">
-                        <li>Technical SEO</li>
-                        <li>Collection page optimization</li>
-                        <li>Editorial blog SEO</li>
-                        <li>Seasonal keyword mapping</li>
-                    </ul>
-                    <div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
-                        <p
-                            style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">
-                            Investment:</p>
-                        <ul style="list-style: none; font-weight: 500; color: var(--text-primary);">
-                            <li>Audit: $90</li>
-                            <li>Basic: $250/mo</li>
-                            <li>Advanced: $450/mo</li>
-                        </ul>
+        <!-- Brand Launch -->
+        <div class="service-detail">
+            <div class="container fade-up-element">
+                <div class="sd-inner">
+                    <div class="sd-left">
+                        <span class="sd-label">Service One</span>
+                        <h2>Brand Architecture & Incubation</h2>
+                        <p>Fashion brand identity systems, strategic positioning, and cultural storytelling. We provide full incubation for new fashion brands connecting with modern audiences.</p>
+                        <div class="price-block dark">
+                            <span class="price-amount">,000</span>
+                            <span class="price-meta">One-time investment · 8–12 weeks</span>
+                        </div>
+                        <a href="contact.html" class="sd-cta">Start Your Brand</a>
+                    </div>
+                    <div class="sd-right">
+                        <div class="included-section">
+                            <h5>Brand Foundation</h5>
+                            <ul>
+                                <li>Brand strategy &amp; market positioning</li>
+                                <li>Visual identity system (logo, colors, typography)</li>
+                                <li>Brand voice &amp; messaging framework</li>
+                                <li>Customer archetype profiles</li>
+                                <li>Differentiation strategy</li>
+                                <li>100+ page brand guidelines</li>
+                            </ul>
+                        </div>
+                        <div class="included-section">
+                            <h5>Product Development</h5>
+                            <ul>
+                                <li>Tech packs for first collection</li>
+                                <li>Complete size grading system</li>
+                                <li>Material specifications &amp; sourcing strategy</li>
+                                <li>Manufacturing documentation</li>
+                                <li>Quality control checklists</li>
+                            </ul>
+                        </div>
+                        <div class="included-section">
+                            <h5>Market Infrastructure</h5>
+                            <ul>
+                                <li>Content production system</li>
+                                <li>Website &amp; sales channel setup</li>
+                                <li>Customer journey automation</li>
+                                <li>Operations framework</li>
+                                <li>Launch campaign execution</li>
+                            </ul>
+                        </div>
+                        <div class="for-whom">
+                            <span>Best For</span>
+                            <p>Designers with vision and sketches who need a complete, market-ready brand with systems
+                                that scale.</p>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Paid Media -->
-                <div class="service-detail-card"
-                    style="padding: 40px; border: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.01);">
-                    <h3 class="playfair" style="font-size: 1.8rem; margin-bottom: 20px;">Paid Media Management</h3>
-                    <ul style="list-style: none; color: var(--text-muted); line-height: 2; margin-bottom: 30px;">
-                        <li>Meta Ads</li>
-                        <li>TikTok Ads</li>
-                        <li>Google Shopping</li>
-                        <li>Creative testing cycles</li>
-                    </ul>
-                    <div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
-                        <p
-                            style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">
-                            Investment:</p>
-                        <ul style="list-style: none; font-weight: 500; color: var(--text-primary);">
-                            <li>Setup: $120</li>
-                            <li>1 Platform: $300/mo</li>
-                            <li>2 Platforms: $520/mo</li>
-                        </ul>
+                <div class="timeline-strip">
+                    <div class="ts-item">
+                        <h6>Phase 1</h6>
+                        <p>Brand Architecture</p>
                     </div>
-                </div>
-
-                <!-- Social Media -->
-                <div class="service-detail-card"
-                    style="padding: 40px; border: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.01);">
-                    <h3 class="playfair" style="font-size: 1.8rem; margin-bottom: 20px;">Social Media Management</h3>
-                    <ul style="list-style: none; color: var(--text-muted); line-height: 2; margin-bottom: 30px;">
-                        <li>Content calendar structuring</li>
-                        <li>Reel strategy</li>
-                        <li>Brand storytelling</li>
-                        <li>Caption + hashtag system</li>
-                    </ul>
-                    <div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
-                        <p
-                            style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">
-                            Investment:</p>
-                        <ul style="list-style: none; font-weight: 500; color: var(--text-primary);">
-                            <li>Setup: $120</li>
-                            <li>12 Posts: $250/mo</li>
-                            <li>16 Posts + Reels: $420/mo</li>
-                        </ul>
+                    <div class="ts-item">
+                        <h6>Phase 2</h6>
+                        <p>Product Foundation</p>
                     </div>
-                </div>
-
-                <!-- Content Systems -->
-                <div class="service-detail-card"
-                    style="padding: 40px; border: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.01);">
-                    <h3 class="playfair" style="font-size: 1.8rem; margin-bottom: 20px;">Content Systems</h3>
-                    <ul style="list-style: none; color: var(--text-muted); line-height: 2; margin-bottom: 30px;">
-                        <li>30-day content mapping</li>
-                        <li>Funnel-based content planning</li>
-                        <li>Launch campaign planning</li>
-                    </ul>
-                    <div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
-                        <p
-                            style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">
-                            Investment:</p>
-                        <ul style="list-style: none; font-weight: 500; color: var(--text-primary);">
-                            <li>30-Day Plan: $100</li>
-                            <li>90-Day Framework: $250</li>
-                            <li>Full Funnel System: $500</li>
-                        </ul>
+                    <div class="ts-item">
+                        <h6>Phase 3</h6>
+                        <p>Infrastructure Build</p>
                     </div>
-                </div>
-
-                <!-- CRO -->
-                <div class="service-detail-card"
-                    style="padding: 40px; border: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.01);">
-                    <h3 class="playfair" style="font-size: 1.8rem; margin-bottom: 20px;">Conversion Optimization</h3>
-                    <ul style="list-style: none; color: var(--text-muted); line-height: 2; margin-bottom: 30px;">
-                        <li>Website audit</li>
-                        <li>Product page refinement</li>
-                        <li>Funnel leak detection</li>
-                    </ul>
-                    <div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
-                        <p
-                            style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">
-                            Investment:</p>
-                        <ul style="list-style: none; font-weight: 500; color: var(--text-primary);">
-                            <li>Audit: $80</li>
-                            <li>Landing Page Opt: $120</li>
-                            <li>Ongoing: $200/mo</li>
-                        </ul>
+                    <div class="ts-item">
+                        <h6>Total</h6>
+                        <p>8–12 Weeks</p>
                     </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Proprietary Digital Systems -->
-    <section class="section relative-z" style="background: rgba(255,255,255,0.03);">
-        <div class="container fade-up-element">
-            <h2 class="playfair" style="font-size: 2.5rem; margin-bottom: 20px; text-align: center;">Structured Digital
-                Systems</h2>
-            <p style="text-align: center; color: var(--text-secondary); max-width: 700px; margin: 0 auto 60px;">Internal
-                structured frameworks that support performance clarity and content scalability.</p>
-
-            <div class="systems-pricing-grid"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-                <div style="padding: 30px; border: 1px solid var(--text-primary); text-align: center;">
-                    <h4 class="playfair" style="margin-bottom: 15px;">Content Velocity</h4>
-                    <div style="font-size: 2rem; margin-bottom: 10px;">$79<span style="font-size: 0.8rem;">/mo</span>
-                    </div>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary);">Ideation & repurposing workflows.</p>
-                </div>
-                <div style="padding: 30px; border: 1px solid var(--text-primary); text-align: center;">
-                    <h4 class="playfair" style="margin-bottom: 15px;">Competitor Intelligence</h4>
-                    <div style="font-size: 2rem; margin-bottom: 10px;">$99<span style="font-size: 0.8rem;">/mo</span>
-                    </div>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary);">Trend tracking & pattern monitoring.</p>
-                </div>
-                <div style="padding: 30px; border: 1px solid var(--text-primary); text-align: center;">
-                    <h4 class="playfair" style="margin-bottom: 15px;">Performance Monitoring</h4>
-                    <div style="font-size: 2rem; margin-bottom: 10px;">$89<span style="font-size: 0.8rem;">/mo</span>
-                    </div>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary);">Real-time KPI tracking & alerts.</p>
-                </div>
-                <div
-                    style="padding: 30px; border: 1px solid var(--accent-color); text-align: center; background: rgba(184,134,11,0.05);">
-                    <h4 class="playfair" style="margin-bottom: 15px;">Full System Suite</h4>
-                    <div style="font-size: 2rem; margin-bottom: 10px;">$199<span style="font-size: 0.8rem;">/mo</span>
-                    </div>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary);">All internal systems. $149/mo with any
-                        service.</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Tech Packs -->
-    <section class="section relative-z">
-        <div class="container fade-up-element">
-            <h2 class="playfair" style="font-size: 2.5rem; margin-bottom: 50px; text-align: center;">Fashion Tech Packs
-            </h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-                <div>
-                    <h3 class="playfair" style="font-size: 2rem; margin-bottom: 20px;">Production Documentation</h3>
-                    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 30px;">
-                        We bridge design creativity and manufacturing precision. Our tech packs prevent factory errors
-                        and ensure your vision is executed with technical accuracy.
-                    </p>
-                    <a href="tech-packs.html" class="btn btn-secondary">View Documentation Specs</a>
-                </div>
-                <div style="padding: 40px; border: 1px solid var(--text-primary); background: #fff; color: #000;">
-                    <h4 class="playfair" style="margin-bottom: 20px;">Pricing Structure</h4>
-                    <ul style="list-style: none; line-height: 2.2;">
-                        <li><strong>Basic Tech Pack:</strong> $100/design</li>
-                        <li><strong>Advanced Tech Pack:</strong> $180/design</li>
-                        <li><strong>5 Designs Bundle:</strong> $800</li>
-                        <li><strong>10 Designs Bundle:</strong> $1,500</li>
-                    </ul>
+        <!-- Brand Growth -->
+        <div class="service-detail" style="background:#fff;">
+            <div class="container fade-up-element">
+                <div class="sd-inner reverse">
+                    <div class="sd-left">
+                        <span class="sd-label">Service Two</span>
+                        <h2>Digital Dominance for Fashion Brands</h2>
+                        <p>Full-funnel digital marketing tailored for brand growth. We leverage Meta, TikTok, Google paid ads, organic strategy, and trendjacking to explode your revenue velocity.</p>
+                        <div class="price-block">
+                            <span class="price-amount">₹75,000nth</span>
+                            <span class="price-meta">Ongoing partnership · 3-month minimum</span>
+                        </div>
+                        <a href="contact.html" class="sd-cta">Build Growth Systems</a>
+                    </div>
+                    <div class="sd-right">
+                        <div class="included-section">
+                            <h5>Collection Development</h5>
+                            <ul>
+                                <li>Ongoing tech pack development</li>
+                                <li>Size system management</li>
+                                <li>Collection planning frameworks</li>
+                                <li>Material strategy updates</li>
+                                <li>Manufacturing documentation</li>
+                            </ul>
+                        </div>
+                        <div class="included-section">
+                            <h5>Multi-Channel Growth</h5>
+                            <ul>
+                                <li>Channel expansion frameworks</li>
+                                <li>Customer experience automation</li>
+                                <li>Content production workflows</li>
+                                <li>Performance optimization</li>
+                                <li>International capability planning</li>
+                            </ul>
+                        </div>
+                        <div class="included-section">
+                            <h5>Strategic Partnership</h5>
+                            <ul>
+                                <li>Monthly strategy sessions</li>
+                                <li>Performance reporting &amp; analysis</li>
+                                <li>Team scaling support</li>
+                                <li>Process documentation updates</li>
+                            </ul>
+                        </div>
+                        <div class="for-whom">
+                            <span>Best For</span>
+                            <p>Established brands with proven concept, ready to build the systematic infrastructure for
+                                serious scale.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <div class="logo">Genixovate.</div>
-                <p>Growth Infrastructure Studio.</p>
+        <!-- Brand Excellence -->
+        <div class="service-detail">
+            <div class="container fade-up-element">
+                <div class="sd-inner">
+                    <div class="sd-left">
+                        <span class="sd-label">Service Three</span>
+                        <h2>Intelligent Fashion Tech & AI Automation</h2>
+                        <p>Unlock breakthroughs with custom AI marketing agents, automated tech pack generation, and intelligent workflow integrations. Bespoke tools for fashion supply chain efficiency.</p>
+                        <div class="price-block dark">
+                            <span class="price-amount">₹1,50,000nth</span>
+                            <span class="price-meta">Comprehensive partnership · Custom scope</span>
+                        </div>
+                        <a href="contact.html" class="sd-cta">Partner with Us</a>
+                    </div>
+                    <div class="sd-right">
+                        <div class="included-section">
+                            <h5>Everything in Brand Growth, plus:</h5>
+                            <ul>
+                                <li>Unlimited product development</li>
+                                <li>Complete content systems</li>
+                                <li>Multi-channel infrastructure (full management)</li>
+                                <li>Custom AI automation development</li>
+                                <li>Dedicated senior strategy team</li>
+                            </ul>
+                        </div>
+                        <div class="included-section">
+                            <h5>Enterprise Operations</h5>
+                            <ul>
+                                <li>Weekly strategy &amp; review sessions</li>
+                                <li>Custom reporting &amp; analytics dashboards</li>
+                                <li>International market expansion support</li>
+                                <li>Team training &amp; upskilling</li>
+                                <li>Priority support (4-hour response)</li>
+                            </ul>
+                        </div>
+                        <div class="for-whom">
+                            <span>Best For</span>
+                            <p>Brands ready to operate at enterprise level who want a complete brand operations
+                                capability embedded in their business.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="index.html#framework">Framework</a>
-                <a href="index.html#pillars">Growth Pillars</a>
-                <a href="index.html#results">Results</a>
+        </div>
+
+    </div>
+
+    <!-- Compare CTA -->
+    <div class="cta-dark">
+        <div class="container fade-up-element">
+            <h2 style="font-family:'Playfair Display',serif;font-size:2.8rem;color:#fff;margin-bottom:15px;">Not Sure
+                Which to Choose?</h2>
+            <p style="color:rgba(255,255,255,.6);margin-bottom:35px;">See full pricing breakdown or book a discovery
+                call — we'll recommend the right fit.</p>
+            <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
+                <a href="pricing.html"
+                    style="display:inline-block;padding:15px 32px;background:#fff;color:#111;font-weight:600;font-size:.88rem;text-decoration:none;">View
+                    Pricing</a>
+                <a href="contact.html"
+                    style="display:inline-block;padding:15px 32px;border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.88rem;text-decoration:none;">Book
+                    Discovery Call</a>
             </div>
-            <div class="footer-meta">
-                <p class="copyright">&copy; 2026 Genixovate. All rights reserved.</p>
+        </div>
+    </div>
+
+    
+    <script src="script.js"></script>
+                    <!-- FOOTER -->
+    <footer class="footer-new">
+        <div class="container">
+            <div class="footer-new-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; max-width: 1000px;">
+                <div class="footer-brand">
+                    <span class="logo" style="font-family: 'Playfair Display', serif; font-size: 2rem; font-style: italic; font-weight: 600; margin-bottom: 20px; display: block;">Genixovate.</span>
+                    <p style="color: rgba(255,255,255,0.6); line-height: 1.6;">Building brand infrastructure<br>for modern fashion.</p>
+                </div>
+                <div class="footer-col" style="margin-left: auto;">
+                    <h4 style="color: rgba(255,255,255,0.3); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;">Company</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="tel:+919871543232">9871543232</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" style="margin-left: auto;">
+                    <h4 style="color: rgba(255,255,255,0.3); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px;">Explore</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="agents.html">Agents</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom" style="margin-top: 60px;">
+                <p>&copy; 2026 Genixovate. Built for fashion founders who value systems as much as creativity.</p>
             </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 
 </html>

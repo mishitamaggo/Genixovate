@@ -232,13 +232,13 @@ ul {
 
 .nav-links {
     display: flex;
-    gap: 40px;
+    gap: 24px;
     align-items: center;
 }
 
 .nav-links a:not(.btn) {
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     position: relative;
@@ -271,11 +271,12 @@ ul {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 100vh;
-    min-height: 800px;
+    min-height: 100vh;
     display: flex;
-    align-items: flex-end;
-    padding-bottom: 120px;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 160px;
+    padding-bottom: 80px;
     overflow: hidden;
 }
 
@@ -313,6 +314,8 @@ ul {
     position: relative;
     width: 100%;
     z-index: 10;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .hero-title {
@@ -722,13 +725,19 @@ ul {
 }
 
 /* Animation Utilities (For JS Integration) */
+/* Default: visible. JS adds js-loaded to <html> to enable animations. */
 .fade-up-element {
-    opacity: 0;
-    transform: translateY(40px);
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.fade-up-element.visible {
+.js-loaded .fade-up-element {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.js-loaded .fade-up-element.visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -859,5 +868,91 @@ ul {
         justify-content: center;
         flex-direction: column;
         gap: 20px;
+    }
+}
+/* Universal Footer Styles */
+.footer-new {
+    background: #0a0a0a;
+    padding: 80px 0 0;
+}
+
+.footer-new-grid {
+    display: grid;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.footer-brand p {
+    color: rgba(255, 255, 255, .45);
+    font-size: .88rem;
+    margin-bottom: 25px;
+    margin-top: 12px;
+}
+
+.footer-brand .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #fff;
+    font-style: italic;
+}
+
+.footer-col h4 {
+    color: rgba(255, 255, 255, .4);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, .65);
+    text-decoration: none;
+    font-size: .88rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, .07);
+    padding: 28px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, .3);
+    font-size: .8rem;
+    margin: 0;
+}
+
+@media(max-width:900px) {
+    .footer-new-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+    }
+    
+    .footer-col {
+        margin-left: 0 !important;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
     }
 }

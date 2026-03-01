@@ -1,0 +1,390 @@
+const fs = require('fs');
+const path = require('path');
+
+const filePath = path.join(__dirname, 'how-we-build.html');
+
+const content = `<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Process | Genixovate</title>
+    <meta name="description"
+        content="How we build modern fashion brands. Our four-stage methodology for comprehensive DTC fashion scaling.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css?v=2.0">
+    <style>
+        .process-stage {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr;
+            gap: 60px;
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        .process-stage:last-child {
+            border-bottom: none;
+        }
+
+        .stage-index {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: rgba(0, 0, 0, .05);
+            font-weight: 700;
+            line-height: .8;
+        }
+
+        .stage-name {
+            font-size: .7rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .process-stage h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .process-stage p {
+            font-size: .95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .stage-activities h5 {
+            font-size: .8rem;
+            font-weight: 700;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .stage-activities ul,
+        .stage-output ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .stage-activities ul li,
+        .stage-output ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: .9rem;
+            color: var(--text-secondary);
+        }
+
+        .stage-activities ul li::before,
+        .stage-output ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--text-primary);
+        }
+
+        .stage-output {
+            background: #fff;
+            padding: 40px;
+            border: 1px solid rgba(0, 0, 0, .08);
+            align-self: start;
+        }
+
+        .stage-output h5 {
+            font-size: .7rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+        
+        /* Footer */
+        .footer-new {
+            background: #0a0a0a;
+            padding: 80px 0 0
+        }
+
+        .footer-new-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, .45);
+            font-size: .88rem;
+            margin-bottom: 25px;
+            margin-top: 12px
+        }
+
+        .footer-brand .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #fff;
+            font-style: italic
+        }
+
+        .footer-col h4 {
+            color: rgba(255, 255, 255, .4);
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            margin-bottom: 25px
+        }
+
+        .footer-col ul {
+            list-style: none
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, .65);
+            text-decoration: none;
+            font-size: .88rem
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .07);
+            padding: 28px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, .3);
+            font-size: .8rem
+        }
+
+        @media(max-width:900px) {
+            .process-stage {
+                grid-template-columns: 1fr;
+                gap: 20px
+            }
+
+            .stage-index {
+                font-size: 3rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Genixovate.</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="ph ph-list"></i></button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="our-work.html">Our Work</a></li>
+                <li><a href="how-we-build.html" class="active">How We Build</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Start a Project</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" style="min-height:50vh;align-items:center;">
+        <div class="hero-video-wrapper">
+            <img src="assets/hero_bg_1772274963937.png" class="hero-bg" alt="Our Process">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-content fade-up-element" style="text-align:center;">
+            <h1 class="hero-title">Our Process: From Fashion Vision to AI-Powered Scale</h1>
+            <p class="hero-subtitle" style="max-width:600px;margin:0 auto;">Collaborative, methodical acceleration for DTC fashion brands.</p>
+        </div>
+    </header>
+
+    <section style="background:#faf9f7;padding:120px 0;">
+        <div class="container">
+
+            <div class="process-stage fade-up-element">
+                <div class="stage-index">01</div>
+                <div>
+                    <span class="stage-name">Discovery</span>
+                    <h2>Discovery &amp; Audit (Weeks 1–2)</h2>
+                    <p>Immersion in your fashion brand: competitor analysis, data review, AI readiness for fashion workflows. Diagnosis &amp; growth roadmap.</p>
+                    <div class="stage-activities">
+                        <h5>Activities</h5>
+                        <ul>
+                            <li>Vision workshops</li>
+                            <li>Market analysis</li>
+                            <li>Customer research</li>
+                            <li>Competitive landscape review</li>
+                            <li>Technical requirements assessment</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="stage-output">
+                    <h5>Output</h5>
+                    <ul>
+                        <li>Clear understanding of what needs to be built</li>
+                        <li>Aligned vision between founder and our team</li>
+                        <li>Project roadmap with priorities</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="process-stage fade-up-element">
+                <div class="stage-index">02</div>
+                <div>
+                    <span class="stage-name">Strategy</span>
+                    <h2>Strategy &amp; Architecture (Weeks 3–6)</h2>
+                    <p>Co-create: brand narrative, digital marketing thesis, AI agent specs for fashion. Blueprint &amp; working assets delivered.</p>
+                    <div class="stage-activities">
+                        <h5>Activities</h5>
+                        <ul>
+                            <li>Brand strategy development</li>
+                            <li>Market positioning</li>
+                            <li>Visual identity creation</li>
+                            <li>Brand voice definition</li>
+                            <li>Customer profiling</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="stage-output">
+                    <h5>Output</h5>
+                    <ul>
+                        <li>Complete brand strategy document</li>
+                        <li>Visual identity system</li>
+                        <li>Brand guidelines</li>
+                        <li>Messaging frameworks</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="process-stage fade-up-element">
+                <div class="stage-index">03</div>
+                <div>
+                    <span class="stage-name">Build</span>
+                    <h2>Build &amp; Activate (Weeks 7–12+)</h2>
+                    <p>Execution: identity rollout, channels live, AI automation deployed. Agile sprints tailored for fashion seasonality and rapid growth.</p>
+                    <div class="stage-activities">
+                        <h5>Activities</h5>
+                        <ul>
+                            <li>Tech pack development</li>
+                            <li>Content system creation</li>
+                            <li>Website and channel setup</li>
+                            <li>Operations documentation</li>
+                            <li>Workflow automation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="stage-output">
+                    <h5>Output</h5>
+                    <ul>
+                        <li>Working systems ready for use</li>
+                        <li>Documentation for everything</li>
+                        <li>Training for your team</li>
+                        <li>Launch-ready infrastructure</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="process-stage fade-up-element">
+                <div class="stage-index">04</div>
+                <div>
+                    <span class="stage-name">Scale & Optimize</span>
+                    <h2>Scale &amp; Optimize (Ongoing)</h2>
+                    <p>Refinement: performance tuning, AI learning, trend integration, and regular monthly ROI evaluation for DTC fashion efficiency.</p>
+                    <div class="stage-activities">
+                        <h5>Activities</h5>
+                        <ul>
+                            <li>Performance analysis</li>
+                            <li>System optimization</li>
+                            <li>Collection planning</li>
+                            <li>Channel expansion</li>
+                            <li>Team development support</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="stage-output">
+                    <h5>Output</h5>
+                    <ul>
+                        <li>Continuously improving systems</li>
+                        <li>Data-driven decision making</li>
+                        <li>Systematic growth capability</li>
+                        <li>Long-term sustainability</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Strip -->
+    <section style="background:#111;padding:100px 0;text-align:center;">
+        <div class="container fade-up-element">
+            <h2 style="font-family:'Playfair Display',serif;font-size:2.8rem;color:#fff;margin-bottom:20px;">Ready to
+                Start?</h2>
+            <p style="color:rgba(255,255,255,.6);font-size:1rem;margin-bottom:35px;">Discovery takes 30–45 minutes.
+                Let's talk about what you're building.</p>
+            <a href="contact.html"
+                style="display:inline-block;padding:16px 36px;background:#fff;color:#111;font-weight:600;font-size:.9rem;text-decoration:none;letter-spacing:.04em;">Book
+                Discovery Call</a>
+        </div>
+    </section>
+
+    <footer class="footer-new">
+        <div class="container">
+            <div class="footer-new-grid">
+                <div class="footer-brand">
+                    <span class="logo">Genixovate.</span>
+                    <p>Building brand infrastructure<br>for modern fashion.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Brand Launch</a></li>
+                        <li><a href="services.html">Brand Growth</a></li>
+                        <li><a href="services.html">Brand Excellence</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Work</h4>
+                    <ul>
+                        <li><a href="our-work.html">Case Studies</a></li>
+                        <li><a href="our-work.html">Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Start a Project</a></li>
+                        <li><a href="tel:+919871543232">+91 98715 43232</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Genixovate. Built for fashion founders who value systems as much as creativity.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+`;
+
+fs.writeFileSync(filePath, content, 'utf-8');
+console.log('Reconstructed how-we-build.html successfully.');
