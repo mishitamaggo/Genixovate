@@ -349,7 +349,7 @@
 <body>
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo" style="display: flex; align-items: center; text-decoration: none;"><img
+            <a href="index.html" class="logo" style="display: flex; align-items: center; text-decoration: none;"><img
                     src="assets/logo.png" alt="Genixovate"
                     style="height: 64px; width: auto; mix-blend-mode: multiply; margin-left: -15px;"></a>
             <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="ph ph-list"></i></button>
@@ -385,22 +385,9 @@
             </div>
             <div class="pricing-cards">
                 <!-- Brand Launch -->
-                <div class="pc">
-                    <span class="pc-label">Brand Launch</span>
-                    <h3>Emerging<br>Package</h3>
-                    <p class="pc-desc">Everything a brand needs to launch. One investment, complete
-                        infrastructure.</p>
-                    <span class="pc-price">$2,800</span>
-                    <span class="pc-cadence">3-month minimum commitment</span>
-                    <ul class="pc-includes">
-                        <li>Fashion brand identity & positioning foundations</li>
-                        <li>Launch digital marketing setup (paid + organic)</li>
-                        <li>Starter AI fashion tools (tech packs + basic agents)</li>
-                        <li>Monthly ROI dashboards & strategy check-ins</li>
-                        <li>Website &amp; sales channel foundation</li>
-                    </ul>
-                    <a href="https://calendly.com/mishitamaggo23/30min" class="pc-btn outline">Start Conversation</a>
-                </div>
+                <li>Website &amp; sales channel foundation</li>
+                </ul>
+                <a href="https://calendly.com/mishitamaggo23/30min" class="pc-btn outline">Start Conversation</a>
             </div>
 
             <!-- Brand Growth -->

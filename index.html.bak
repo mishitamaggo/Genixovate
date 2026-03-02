@@ -576,7 +576,7 @@
 <body>
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="/" class="logo" style="display: flex; align-items: center; text-decoration: none;"><img
+            <a href="index.html" class="logo" style="display: flex; align-items: center; text-decoration: none;"><img
                     src="assets/logo.png" alt="Genixovate"
                     style="height: 64px; width: auto; mix-blend-mode: multiply; margin-left: -15px;"></a>
             <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="ph ph-list"></i></button>
@@ -816,67 +816,56 @@
             <div class="packages-grid">
                 <div class="pkg fade-up-element">
                     <span class="pkg-label">Brand Launch</span>
-                    <h3>Emerging Package</h3>
+                    <h3>For Emerging Brands</h3>
                     <p>Going from concept to market. We build your complete brand infrastructure.</p>
                     <ul class="pkg-features">
                         <li>Strategy &amp; identity systems</li>
-                        <li>Product development capability</li>
-                        <li>Market infrastructure</li>
-                        <li>Launch systems</li>
-                    </ul>
-                    <div class="pkg-meta">
-                        <span class="pkg-investment">$2,800</span>
-                        <span class="pkg-timeline">8–12 weeks (One-time)</span>
-                    </div>
-                    <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:15px;">A complete, market-ready
-                        brand with systems that scale.</p>
-                    <a href="https://calendly.com/mishitamaggo23/30min" class="pkg-cta dark">Start Conversation</a>
-                </div>
-                <div class="pkg featured fade-up-element">
-                    <span class="pkg-label">Brand Growth</span>
-                    <h3>Scaling Package</h3>
-                    <p>Building systematic scale. We create growth infrastructure for brands ready to expand.
-                    </p>
-                    <ul class="pkg-features">
-                        <li>Collection development systems</li>
-                        <li>Multi-channel frameworks</li>
-                        <li>Customer experience automation</li>
-                        <li>Performance optimization</li>
-                        <li>Strategic guidance</li>
-                    </ul>
-                    <div class="pkg-meta">
-                        <span class="pkg-investment">$4,500–$6,500/mo</span>
-                        <span class="pkg-timeline">(retainer, based on scope)</span>
-                    </div>
-                    <p style="font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:15px;">The systems and
-                        support to
-                        scale without chaos.</p>
-                    <a href="https://calendly.com/mishitamaggo23/30min" class="pkg-cta light">Start
-                        Conversation</a>
-                </div>
 
-                <div class="pkg fade-up-element">
-                    <span class="pkg-label">Brand Excellence</span>
-                    <h3>For Serious Scale</h3>
-                    <p>We become your brand operations. Complete capability, comprehensive partnership.</p>
-                    <ul class="pkg-features">
-                        <li>Unlimited product development</li>
-                        <li>Complete content systems</li>
-                        <li>Multi-channel infrastructure</li>
-                        <li>Strategic partnership</li>
-                        <li>Custom automation</li>
-                    </ul>
-                    <div class="pkg-meta">
-                        <span class="pkg-investment">$9,000+/mo</span>
-                        <span class="pkg-timeline">(custom retainer)</span>
-                    </div>
-                    <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:15px;">A complete brand
-                        operations
-                        capability.</p>
-                    <a href="https://calendly.com/mishitamaggo23/30min" class="pkg-cta dark">Partner with Us</a>
+                        <div class="pkg featured fade-up-element">
+                            <span class="pkg-label">Brand Growth</span>
+                            <h3>For Established Brands</h3>
+                            <p>Building systematic scale. We create growth infrastructure for brands ready to expand.
+                            </p>
+                            <ul class="pkg-features">
+                                <li>Collection development systems</li>
+                                <li>Multi-channel frameworks</li>
+                                <li>Customer experience automation</li>
+                                <li>Performance optimization</li>
+                                <li>Strategic guidance</li>
+                            </ul>
+                            <div class="pkg-meta">
+                                <span class="pkg-investment">$4,500–$6,500/mo</span>
+                                <span class="pkg-timeline">(retainer, based on scope)</span>
+                            </div>
+                            <p style="font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:15px;">The systems and
+                                support to
+                                scale without chaos.</p>
+                            <a href="https://calendly.com/mishitamaggo23/30min" class="pkg-cta light">Start
+                                Conversation</a>
+                        </div>
+
+                        <div class="pkg fade-up-element">
+                            <span class="pkg-label">Brand Excellence</span>
+                            <h3>For Serious Scale</h3>
+                            <p>We become your brand operations. Complete capability, comprehensive partnership.</p>
+                            <ul class="pkg-features">
+                                <li>Unlimited product development</li>
+                                <li>Complete content systems</li>
+                                <li>Multi-channel infrastructure</li>
+                                <li>Strategic partnership</li>
+                                <li>Custom automation</li>
+                            </ul>
+                            <div class="pkg-meta">
+                                <span class="pkg-investment">$9,000+/mo</span>
+                                <span class="pkg-timeline">(custom retainer)</span>
+                            </div>
+                            <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:15px;">A complete brand
+                                operations
+                                capability.</p>
+                            <a href="https://calendly.com/mishitamaggo23/30min" class="pkg-cta dark">Partner with Us</a>
+                        </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- TECHNOLOGY ADVANTAGE -->
