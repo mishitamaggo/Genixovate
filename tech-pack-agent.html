@@ -26,7 +26,7 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css?v=2.0">
     <link rel="icon" type="image/png" href="assets/g-favicon.png">
-    <link rel="canonical" href="https://www.genixovate.com/agents.html" />
+    <link rel="canonical" href="https://www.genixovate.com/tech-pack-agent.html" />
 </head>
 
 <body>
@@ -172,6 +172,138 @@ Bulk Production</div>
                 </div>
             </div>
             
+            
+            <hr style="border: 0; height: 1px; background: rgba(0,0,0,0.1); margin: 60px 0;">
+
+            <div style="margin-bottom: 60px;">
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 30px;">Workflow of a Tech Pack Agent</h2>
+                
+                <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 20px;">What the Agent Needs to Do</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 40px;">
+                    A tech pack agent takes a designer's raw inputs &mdash; sketches, references, fabric ideas, verbal descriptions &mdash; and outputs a production-ready technical document a factory can actually use.
+                </p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 30px;">End-to-End Workflow</h3>
+                <div style="background: #faf9f7; padding: 30px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); font-family: monospace; font-size: 0.9rem; line-height: 1.8; overflow-x: auto; color: var(--text-secondary); margin-bottom: 40px;">
+<strong style="color:var(--text-primary);">INPUT LAYER</strong><br>
+Designer uploads:<br>
+- Sketch / reference image (hand-drawn or digital)<br>
+- Fabric description or swatch image<br>
+- Verbal brief ("oversized bomber, nylon shell, contrast piping, drop shoulder")<br>
+- Brand's size base (S/M/L or numerical)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+<strong style="color:var(--text-primary);">EXTRACTION AGENT</strong><br>
+- Reads and parses the sketch using computer vision<br>
+- Identifies garment category, silhouette, construction zones<br>
+- Flags ambiguous areas and asks clarifying questions<br>
+- Extracts all visible design details automatically<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+<strong style="color:var(--text-primary);">KNOWLEDGE LAYER (RAG / Fine-tuned Model)</strong><br>
+- Cross-references garment category against known construction standards<br>
+- Suggests appropriate seam types, stitch specs, hem finishes for that garment type<br>
+- Pulls standard measurement charts for the size base<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+<strong style="color:var(--text-primary);">BOM GENERATION AGENT</strong><br>
+- Auto-generates Bill of Materials based on garment type<br>
+- Suggests shell fabric, lining, interlining, thread, zipper type, button size, label type<br>
+- Flags items that need designer confirmation<br>
+- Maps fabric descriptions to Pantone / Coloro codes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+<strong style="color:var(--text-primary);">SPEC SHEET GENERATION AGENT</strong><br>
+- Populates all Points of Measure (POM) from standard templates<br>
+- Applies grade rules across size range automatically<br>
+- Flags measurements that fall outside standard range<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+<strong style="color:var(--text-primary);">TECHNICAL FLAT GENERATION</strong><br>
+- Generates or cleans up technical flat sketches (front, back, detail callouts)<br>
+- Labels every construction detail with reference numbers<br>
+- Links callouts to corresponding BOM line items<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+<strong style="color:var(--text-primary);">CONSTRUCTION NOTES AGENT</strong><br>
+- Writes stitch type per seam zone<br>
+- Specifies SPI (stitches per inch) by fabric weight<br>
+- Adds bartack and reinforcement placement<br>
+- Adds care label content based on fabric composition<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+<strong style="color:var(--text-primary);">REVIEW &amp; QA AGENT</strong><br>
+- Runs internal consistency check<br>
+&nbsp;&nbsp;(does BOM match sketch callouts?)<br>
+&nbsp;&nbsp;(do measurements match size base?)<br>
+&nbsp;&nbsp;(are all Pantone codes assigned?)<br>
+- Flags missing fields with priority level<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&darr;<br>
+<strong style="color:var(--text-primary);">OUTPUT</strong><br>
+- PDF tech pack formatted for factory review<br>
+- Editable version (Google Sheets / Excel / Figma)<br>
+- Factory-ready cover page with version number<br>
+- Separate costing-ready BOM export
+                </div>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 20px;">The Clarification Loop</h3>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px;">This is the most important part most people overlook. A good tech pack agent doesn't just generate &mdash; it <strong>interrogates gaps intelligently.</strong></p>
+                <div style="background: #faf9f7; padding: 30px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); font-family: monospace; font-size: 0.9rem; line-height: 1.8; overflow-x: auto; color: var(--text-secondary); margin-bottom: 20px;">
+Agent detects: "Closure type not specified"<br>
+Agent asks: "Is the front closure a zipper, buttons, or snap fasteners?"<br><br>
+Designer answers: "Invisible zip"<br><br>
+Agent follows up: "What length? Should it extend to hem or stop at hip?"<br><br>
+Designer answers &rarr; Agent updates BOM + construction notes
+                </div>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 40px; font-style: italic;">The quality of the output depends entirely on how well the agent handles ambiguity &mdash; not just on what it generates.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 30px;">Data It Needs to Be Trained On</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-bottom: 40px; font-size: 0.95rem;">
+                    <tr style="border-bottom: 2px solid rgba(0,0,0,0.1); text-align: left;">
+                        <th style="padding: 15px 10px; color: var(--text-primary);">Data Type</th>
+                        <th style="padding: 15px 10px; color: var(--text-primary);">Why It's Needed</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                        <td style="padding: 15px 10px; font-weight: 600;">Garment construction standards</td>
+                        <td style="padding: 15px 10px; color: var(--text-muted);">Knows correct seam/stitch for each category</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                        <td style="padding: 15px 10px; font-weight: 600;">Factory communication patterns</td>
+                        <td style="padding: 15px 10px; color: var(--text-muted);">Understands what factories actually need to see</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                        <td style="padding: 15px 10px; font-weight: 600;">Historical tech packs by category</td>
+                        <td style="padding: 15px 10px; color: var(--text-muted);">Learns format, completeness, edge cases</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                        <td style="padding: 15px 10px; font-weight: 600;">Pantone / Coloro libraries</td>
+                        <td style="padding: 15px 10px; color: var(--text-muted);">Maps color descriptions to codes</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                        <td style="padding: 15px 10px; font-weight: 600;">Standard measurement charts</td>
+                        <td style="padding: 15px 10px; color: var(--text-muted);">Populates POM tables accurately</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                        <td style="padding: 15px 10px; font-weight: 600;">Grade rule tables by category</td>
+                        <td style="padding: 15px 10px; color: var(--text-muted);">Sizes across a range correctly</td>
+                    </tr>
+                </table>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 25px; color: #a00;">Where It Breaks Down</h3>
+                <ul style="list-style: none; padding: 0; margin-bottom: 40px;">
+                    <li style="margin-bottom: 15px; font-size: 0.95rem; color: var(--text-secondary);">&bull; <strong>Highly experimental or couture construction</strong> &mdash; agent won't know niche techniques</li>
+                    <li style="margin-bottom: 15px; font-size: 0.95rem; color: var(--text-secondary);">&bull; <strong>Custom fabric development</strong> &mdash; can't spec something that doesn't exist in its knowledge base</li>
+                    <li style="margin-bottom: 15px; font-size: 0.95rem; color: var(--text-secondary);">&bull; <strong>Ambiguous sketches</strong> &mdash; if the input is unclear, the output compounds the confusion</li>
+                    <li style="margin-bottom: 15px; font-size: 0.95rem; color: var(--text-secondary);">&bull; <strong>Factory-specific requirements</strong> &mdash; different factories want different formats; a generic output may need manual reformatting</li>
+                </ul>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; margin-bottom: 25px;">The Human-in-the-Loop Requirement</h3>
+                <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 15px;">A fully autonomous tech pack agent isn't viable yet for production use. The realistic version is:</p>
+                <div style="background: #faf9f7; padding: 20px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); font-family: monospace; font-size: 0.85rem; line-height: 1.6; overflow-x: auto; color: var(--text-secondary); margin-bottom: 20px;">
+Agent handles 80% of the document automatically<br>
+&darr;<br>
+Human technical designer reviews + fills gaps<br>
+&darr;<br>
+Agent formats final version and version-controls it<br>
+&darr;<br>
+Factory receives clean, consistent output
+                </div>
+                <p style="font-size: 0.95rem; color: var(--text-muted); font-style: italic;">The value isn't replacing the technical designer &mdash; it's compressing 6&ndash;8 hours of work to 1&ndash;2 hours, and making the output consistent regardless of who on the team runs it.</p>
+            </div>
+
             <div style="text-align: center; margin-top: 80px;">
                 <a href="https://calendly.com/mishitamaggo23/30min" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">Start Conversation &rarr;</a>
             </div>
@@ -200,7 +332,7 @@ Bulk Production</div>
                     <ul style="list-style: none; padding: 0;">
                         <li><a href="services.html">Services</a></li>
                         <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="agents.html">Tech Pack Agent</a></li>
+                        <li><a href="tech-pack-agent.html">Tech Pack Agent</a></li>
                         <li><a href="blogs.html">Blogs</a></li>
                     </ul>
                 </div>
