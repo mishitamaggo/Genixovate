@@ -53,6 +53,233 @@
         </div>
     </header>
 
+    <!-- INTERACTIVE AGENT DEMO -->
+    <section class="agent-demo-section" id="agentDemo" style="padding: 80px 0; background: #fff; border-bottom: 1px solid rgba(0,0,0,0.05);">
+        <div class="container fade-up-element" style="max-width: 900px; margin: 0 auto;">
+            
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-kicker">Experience the Automation</span>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 15px;">Run the Tech Pack Agent</h2>
+                <p style="color: var(--text-muted); font-size: 1rem;">Provide a creative brief and watch the agent blueprint your garment.</p>
+            </div>
+
+            <!-- STATE 1: INPUT FORM -->
+            <div id="agentStateInput" class="agent-card" style="background: #faf9f7; padding: 40px; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px;">
+                <form id="agentForm">
+                    <div style="margin-bottom: 25px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px;">1. Upload Sketch or Reference (Optional)</label>
+                        <div class="upload-zone" style="border: 1px dashed rgba(0,0,0,0.2); padding: 30px; text-align: center; cursor: pointer; transition: background 0.2s;">
+                            <i class="ph ph-upload-simple" style="font-size: 2rem; color: var(--text-muted); margin-bottom: 15px;"></i>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">Drag & drop image or click to browse</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px;">2. Verbal Brief & Fabric Details</label>
+                        <textarea id="briefInput" rows="4" style="width: 100%; padding: 15px; border: 1px solid rgba(0,0,0,0.1); font-family: inherit; font-size: 0.95rem; resize: vertical;" placeholder="e.g., Oversized bomber jacket. Heavyweight nylon shell in matte black. Orange contrast lining. Silver heavy-duty front zip. Ribbed collar and cuffs..."></textarea>
+                    </div>
+
+                    <div style="margin-bottom: 35px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px;">3. Size Base & Grading</label>
+                        <select id="sizeBaseInput" style="width: 100%; padding: 15px; border: 1px solid rgba(0,0,0,0.1); font-family: inherit; font-size: 0.95rem; background: #fff;">
+                            <option value="S/M/L">Alpha Sizing (S / M / L / XL)</option>
+                            <option value="Numerical">Numerical Sizing (0 - 14)</option>
+                            <option value="Mens">Men's Standard (38 - 46)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px; font-size: 1.05rem; justify-content: center;">Initialize Agent Generation</button>
+                </form>
+            </div>
+
+            <!-- STATE 2: LOADING / PROCESSING -->
+            <div id="agentStateProcessing" class="agent-card" style="display: none; background: #111; color: #fff; padding: 50px 40px; border-radius: 4px; border: 1px solid #333;">
+                <div style="margin-bottom: 30px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 400; margin: 0; letter-spacing: 0.05em;"><span style="color: #666;">AGENT //</span> PROCESSING</h3>
+                    <div class="processing-spinner" style="width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.2); border-top-color: #fff; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                </div>
+
+                <div id="processingLog" style="font-family: monospace; font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 2;">
+                    <!-- Logs injected via JS -->
+                </div>
+            </div>
+
+            <!-- STATE 3: SIMULATED OUTPUT (DASHBOARD) -->
+            <div id="agentStateOutput" class="agent-card" style="display: none; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden;">
+                <!-- Header -->
+                <div style="background: #faf9f7; padding: 25px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(0,0,0,0.05);">
+                    <div>
+                        <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 700; display: block; margin-bottom: 5px;">Output Success</span>
+                        <h3 id="outputTitle" style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin: 0;">Bomber Jacket Tech Pack V1</h3>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button onclick="resetAgent()" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.85rem;">Run New Brief</button>
+                        <button class="btn btn-primary" style="padding: 10px 20px; font-size: 0.85rem;"><i class="ph ph-download-simple" style="margin-right: 5px;"></i> Export PDF</button>
+                    </div>
+                </div>
+
+                <!-- Content Grid -->
+                <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 0;">
+                    
+                    <!-- Left: Metadata -->
+                    <div style="padding: 30px; border-right: 1px solid rgba(0,0,0,0.05); background: #fff;">
+                        <div style="margin-bottom: 25px;">
+                            <h5 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; letter-spacing: 0.05em;">Garment Type</h5>
+                            <p style="font-size: 0.95rem; font-weight: 500;">Outerwear / Jacket</p>
+                        </div>
+                        <div style="margin-bottom: 25px;">
+                            <h5 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; letter-spacing: 0.05em;">Size Base</h5>
+                            <p id="outputSizeBase" style="font-size: 0.95rem; font-weight: 500;">S/M/L</p>
+                        </div>
+                        <div style="margin-bottom: 25px;">
+                            <h5 style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; letter-spacing: 0.05em;">Construction Notes</h5>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+                                <li style="margin-bottom: 5px;">&bull; Clean finish armholes with self-binding</li>
+                                <li style="margin-bottom: 5px;">&bull; DTM single-needle topstitching</li>
+                                <li style="margin-bottom: 5px;">&bull; SPI: 10-12</li>
+                                <li style="margin-bottom: 5px;">&bull; Bartack all pocket stress points</li>
+                            </ul>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.02); padding: 15px; border-radius: 4px;">
+                             <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0; font-style: italic;">"Agent resolved missing zipper length parameter by defaulting to standard #5 separating zip at CF."</p>
+                        </div>
+                    </div>
+
+                    <!-- Right: BOM Data -->
+                    <div style="padding: 30px; background: #faf9f7;">
+                        <h4 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 20px;">Generated Bill of Materials (BOM)</h4>
+                        
+                        <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid rgba(0,0,0,0.1); text-align: left; color: var(--text-muted);">
+                                    <th style="padding: 10px 0;">Item</th>
+                                    <th style="padding: 10px 0;">Description</th>
+                                    <th style="padding: 10px 0;">Color/Code</th>
+                                    <th style="padding: 10px 0;">Amt</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                    <td style="padding: 12px 0; font-weight: 500;">Shell Fabric</td>
+                                    <td style="padding: 12px 0; color: var(--text-secondary);">Heavyweight Nylon Twill</td>
+                                    <td style="padding: 12px 0;">19-4005 TCX</td>
+                                    <td style="padding: 12px 0;">1.8m</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                    <td style="padding: 12px 0; font-weight: 500;">Lining</td>
+                                    <td style="padding: 12px 0; color: var(--text-secondary);">Poly Satin</td>
+                                    <td style="padding: 12px 0;">16-1358 TCX</td>
+                                    <td style="padding: 12px 0;">1.5m</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                    <td style="padding: 12px 0; font-weight: 500;">Hardware #1</td>
+                                    <td style="padding: 12px 0; color: var(--text-secondary);">Silver #5 Metal Zip (CF)</td>
+                                    <td style="padding: 12px 0;">Silver DTM</td>
+                                    <td style="padding: 12px 0;">1pc</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(0,0,0,0.05);">
+                                    <td style="padding: 12px 0; font-weight: 500;">Trim #1</td>
+                                    <td style="padding: 12px 0; color: var(--text-secondary);">2x2 Rib Knit (Cuffs/Hem)</td>
+                                    <td style="padding: 12px 0;">19-4005 TCX</td>
+                                    <td style="padding: 12px 0;">0.6m</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div style="margin-top: 30px; display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-size: 0.8rem; color: var(--text-muted);"><i class="ph ph-check-circle" style="color: #27ae60; margin-right: 5px; vertical-align: middle;"></i> Specs passed QA check</span>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);"><i class="ph ph-check-circle" style="color: #27ae60; margin-right: 5px; vertical-align: middle;"></i> Grade rules applied</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- AGENT SCRIPTS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('agentForm');
+            const stateInput = document.getElementById('agentStateInput');
+            const stateProcessing = document.getElementById('agentStateProcessing');
+            const stateOutput = document.getElementById('agentStateOutput');
+            const logContainer = document.getElementById('processingLog');
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get inputs
+                const brief = document.getElementById('briefInput').value;
+                const sizeBase = document.getElementById('sizeBaseInput').value;
+
+                // Update Output Data
+                document.getElementById('outputSizeBase').textContent = sizeBase;
+                if(brief.toLowerCase().includes('shirt')) document.getElementById('outputTitle').textContent = "Shirt Tech Pack V1";
+
+                // Transition to Processing State
+                stateInput.style.display = 'none';
+                stateProcessing.style.display = 'block';
+
+                logContainer.innerHTML = ''; // reset
+
+                // Simulate workflow steps
+                const workflowSteps = [
+                    { msg: "> INITIALIZING AGENT...", delay: 500 },
+                    { msg: "> EXTRACTION AGENT: Parsing sketch references and verbal brief...", delay: 1500 },
+                    { msg: "  [OK] Identified silhouette: Outerwear / Jacket", delay: 2000 },
+                    { msg: "  [OK] Extracted construction zones: Armhole, Hem, Collar, CF", delay: 2500 },
+                    { msg: "> KNOWLEDGE LAYER: Cross-referencing standards...", delay: 3500 },
+                    { msg: "  [OK] Pulled standard specs for Size Base: " + sizeBase, delay: 4000 },
+                    { msg: "> BOM GENERATION AGENT: Building material matrix...", delay: 5200 },
+                    { msg: "  [ALERT] Closure type length unspecified. Inferring standard hip-length separating zip based on silhouette.", delay: 6000, color: '#f39c12' },
+                    { msg: "  [OK] Mapped 4 materials to Pantone TCX codes.", delay: 6800 },
+                    { msg: "> GEN CONFIRM: Technical Flat generated & Callouts mapped.", delay: 8000 },
+                    { msg: "> REVIEW & QA AGENT: Executing internal consistency protocols...", delay: 9000 },
+                    { msg: "  [OK] Measurement delta within accepted grade rules.", delay: 9800 },
+                    { msg: "> OUTPUT COMPILED. RELEASING FINAL DOCS.", delay: 10500, color: '#27ae60' }
+                ];
+
+                workflowSteps.forEach(step => {
+                    setTimeout(() => {
+                        const row = document.createElement('div');
+                        row.textContent = step.msg;
+                        if(step.color) row.style.color = step.color;
+                        logContainer.appendChild(row);
+                        
+                        // Scroll to bottom
+                        logContainer.scrollTop = logContainer.scrollHeight;
+
+                        // On last step, show output
+                        if (step === workflowSteps[workflowSteps.length - 1]) {
+                            setTimeout(() => {
+                                stateProcessing.style.display = 'none';
+                                stateOutput.style.display = 'block';
+                            }, 1500);
+                        }
+                    }, step.delay);
+                });
+            });
+
+            // Styling for the spinner inside script so it doesn't pollute external CSS right now
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes spin { 100% { transform: rotate(360deg); } }
+                .agent-card { box-shadow: 0 15px 40px rgba(0,0,0,0.03); }
+            `;
+            document.head.appendChild(style);
+        });
+
+        function resetAgent() {
+            document.getElementById('agentStateOutput').style.display = 'none';
+            document.getElementById('agentForm').reset();
+            document.getElementById('agentStateInput').style.display = 'block';
+        }
+    </script>
+
+
     <section class="section" style="padding: 80px 0;">
         <div class="container fade-up-element" style="max-width: 800px; margin: 0 auto;">
             <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 30px;">How Professional Tech Packs Work in Fashion</h2>
